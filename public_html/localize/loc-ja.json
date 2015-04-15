@@ -1,0 +1,29 @@
+{
+	"base" :{
+		"app-title": "ゴミ分別ナビ"
+	},
+	"top" : {
+		"page-tab" : {
+			"week" : "週",
+			"month" : "月",
+			"classification": "分別",
+			"settings" : "設定"
+		},
+		"footer" : {
+			"company": "copyright © 2014 jig.jp co., ltd. all rights reserved."
+		}
+	},
+	
+	"list-calendar": {
+		"title" : "リストカレンダー"
+	},
+	"calendar" : {
+		"title" : "カレンダー"
+	},
+	
+	"classification" : {
+		"title" : "分別"
+	}
+	
+	
+}

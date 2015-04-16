@@ -23,7 +23,7 @@ module.exports = function (grunt) {
 		coffee: {
 			compile: {
 				files: {
-					'public_html/js/main.js': ['public_html/js/src/*.coffee'] 
+					'public_html/js/main.js': ['public_html/js/src/localize.coffee','public_html/js/src/*.coffee'] 
 				}
 			}
 		},
@@ -105,6 +105,9 @@ module.exports = function (grunt) {
 			image: {
 				files: 'public_html/images/**',
 				tasks: ['copy']
+			},
+			options: {
+				livereload: true
 			}
 		}
 });

@@ -1,0 +1,98 @@
+// functions
+// ボタンのディテールを設定
+@mixin button-detail($color) {
+  background-color: $color;
+  border-top: 5px solid lighten($color,7%);
+  border-left: 5px solid lighten($color,7%);
+  border-right: 5px solid darken($color,7%);
+  border-bottom: 5px solid darken($color,7%);
+  border-radius: 5px;
+  color: $button-text-color;
+  box-sizing: border-box;
+  font-weight: bold;
+  &:hover {
+    opacity: 0.7;
+  }
+}
+
+// トップページ説明部分全体のスタイル
+.top-description {
+  font-weight: bold;
+  color: $text-black-color;
+  text-align: center;
+  padding: 10px 0;
+  border-bottom: $description-border;
+  font-size: 20px;
+}
+
+// 各ボタンへのスタイル適用
+.button {
+  width: 31%;
+  min-height: 90px;
+  text-align: center;
+  float: left;
+  background-color: #cccccc;
+  margin-top: 10px;
+  font-size: 28px;
+  line-height: 35px;
+  padding: 1px 8px;
+  &:nth-child(3n){
+    margin-left: 3.5%;
+  }
+  &:nth-child(3n+1){
+    margin-right: 3.5%;
+  }
+
+  // 説明文中のボタン
+  &.button-sample {
+    @include button-detail($sample-button-color);
+    display: inline-block;
+    margin: 0 3px 0 -3px;
+    min-height: 0;
+    height: auto;
+    width: auto;
+    float: none;
+    font-size: 20px;
+    &:hover {
+      opacity: 1;
+    }
+  }
+
+  // 各種災害のボタン
+  &.button-earthquake {
+    @include button-detail($earthquake-button-color);
+    padding: 23px 0 0;
+  }
+  &.button-flood {
+    @include button-detail($flood-button-color);
+    padding: 23px 0 0;
+  }
+  &.button-high-tide {
+    @include button-detail($high-tide-button-color);
+    padding: 23px 0 0;
+  }
+  &.button-tsunami {
+    @include button-detail($tsunami-button-color);
+    padding: 23px 0 0;
+  }
+  &.button-inundation {
+    @include button-detail($inundation-button-color);
+    padding: 23px 0 0;
+  }
+  &.button-eruption {
+    @include button-detail($eruption-button-color);
+    padding: 23px 0 0;
+  }
+  &.button-fire {
+    @include button-detail($fire-button-color);
+    padding: 23px 0 0;
+  }
+  &.button-typhoon {
+    @include button-detail($typhoon-button-color);
+    padding: 5px 0 0;
+  }
+  &.button-others {
+    @include button-detail($others-button-color);
+    padding: 5px 0 0;
+  }
+}

@@ -1,0 +1,48 @@
+header.navbar {
+  // ナビゲーションバー全体に対する指定
+  position: fixed;
+  color: $title-text-color;
+  min-height: 43px;
+  text-align: center;
+  width: 100%;
+  background-color: $title-bar-background-color;
+  // 戻るボタン
+  div.back-button {
+    position: absolute;
+    z-index: 3;
+    top: 8px;
+    left: 10px;
+  }
+  // メニューボタン
+  div.nav-button {
+    position: absolute;
+    z-index: 3;
+    top: 8px;
+    right: 10px;
+  }
+  // タイトル
+  h1 {
+    font-weight: bold;
+    font-size: $title-font-size;
+    padding: 5px 0;
+  }
+  // メニューボタン押下時に出てくる項目
+  nav {
+    display: none;
+    background-color: $title-nav-background-color;
+    ul {
+      list-style: none;
+      width: 100%;
+      li {
+        text-align: left;
+        padding: 5px 10px;
+        border-bottom: $title-nav-li-border;
+        a {
+          display: block;
+          width: 100%;
+          height: 100%;
+        }
+      }
+    }
+  }
+}

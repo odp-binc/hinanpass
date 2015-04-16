@@ -1,0 +1,13 @@
+// .container
+div.container {
+  min-height: 100%;
+  box-sizing: border-box;
+  max-width: $contents-max-width;
+  width: $contents-width;
+  margin: 0 auto;
+}
+
+div.contents {
+  padding-top: 43px;
+}
+

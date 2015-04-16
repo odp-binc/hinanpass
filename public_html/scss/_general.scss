@@ -1,3 +1,25 @@
+// functions
+// ボタンのディテールを設定
+@mixin button-detail($color) {
+  background-color: $color;
+  border-top: 5px solid lighten($color,5%);
+  border-left: 5px solid lighten($color,5%);
+  border-right: 5px solid darken($color,5%);
+  border-bottom: 5px solid darken($color,5%);
+  border-radius: 5px;
+  color: $button-text-color;
+  box-sizing: border-box;
+  font-weight: bold;
+  &:hover {
+    background-color: darken($color,5%);
+    border-top: 5px solid $color;
+    border-left: 5px solid $color;
+    border-right: 5px solid darken($color,10%);
+    border-bottom: 5px solid darken($color,10%);
+  }
+}
+
+// style
 // .container
 div.container {
   min-height: 100%;

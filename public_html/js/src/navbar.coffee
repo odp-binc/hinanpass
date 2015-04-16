@@ -5,7 +5,6 @@ window.navbarReset = ->
     $('#pageNav').slideToggle 'fast'
 
   # メニューバーの文字の挿入
-  $('#backButton').text '< ' + t 'navbar.back'
   $('#navButton').text t 'navbar.menu'
   $('.navbar h1').text t 'navbar.title'
   

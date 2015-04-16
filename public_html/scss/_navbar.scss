@@ -6,6 +6,7 @@ header.navbar {
   text-align: center;
   width: 100%;
   background-color: $title-bar-background-color;
+  box-shadow: $navbar-shadow;
   // 戻るボタン
   div.back-button {
     position: absolute;

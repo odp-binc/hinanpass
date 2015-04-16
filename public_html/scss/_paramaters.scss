@@ -9,6 +9,7 @@ $title-text-color: #ffffff;
 $title-bar-background-color: #548799;
 $title-nav-background-color: #456e87;
 $title-nav-li-border: 1px solid #548799;
+$navbar-shadow: 0 0 3px rgba(0,0,0,0.3);
 
 // description
 $description-border: 1px solid #cccccc;
@@ -25,3 +26,10 @@ $eruption-button-color: #db2811;
 $fire-button-color: #d64e00;
 $typhoon-button-color: #c7c21b;
 $others-button-color: #cf4fa2;
+
+// next button
+$next-button-font-size: 40px;
+
+// guide list
+$guide-list-border: 7px solid $text-black-color;
+$guide-strong-color: #ff4430;

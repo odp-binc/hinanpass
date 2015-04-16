@@ -22,6 +22,12 @@
         typhoonButton: '風水<br>被害',
         othersButton: 'その<br>ほか'
       }
+    },
+    guidance: {
+      goToNext: '次に進む',
+      linkToDetail: '詳しくはこちら',
+      earthquake: '<ul> <li><strong>火</strong>を消す</li> <li><strong>落下物</strong>や<strong>足元</strong>に注意</li> <li><strong>暖房器具</strong>を消す</li> <li><strong>ブレーカー</strong>を切る</li> <li>下敷きになったら大声で<strong>助けを呼ぶ</strong></li> <li>火災が起きたら<strong>消火器</strong>で初期消火を</li> <li>消化も下敷きも<strong>みんなで</strong>協力して救助</li> </ul>',
+      earthquakeLink: 'http://google.com'
     }
   });
 
@@ -29,15 +35,17 @@
 
 (function() {
   window.buttonList = function() {
-    var buttonMaker, descriptionCreate, disasterButtonCreate, partsReset;
+    var descriptionCreate, disasterButtonCreate, disasterButtonMaker, partsReset;
     partsReset = function() {
       $('#contents').html('<div id="description" class="top-description"></div>');
       return $('#contents').append('<div id="buttonWrapper"></div>');
     };
-    buttonMaker = function(appendElement, buttonClassName, buttonIdName) {
+    disasterButtonMaker = function(appendElement, buttonClassName, buttonIdName) {
       $(appendElement).append('<div id="' + buttonIdName + '" class="button ' + buttonClassName + '"><p>' + t('buttonList.buttons.' + buttonIdName) + '</p></div>');
       return $('#' + buttonIdName).on('click', function() {
-        return console.log('clicked');
+        window.prev = buttonList;
+        $('#backButton').text('< ' + t('navbar.back'));
+        return guidance(buttonClassName);
       });
     };
     descriptionCreate = function() {
@@ -46,15 +54,15 @@
       return $('#description').append(t('buttonList.description.sentenceAfterButton'));
     };
     disasterButtonCreate = function() {
-      buttonMaker('#buttonWrapper', 'button-earthquake', 'earthquakeButton');
-      buttonMaker('#buttonWrapper', 'button-flood', 'floodButton');
-      buttonMaker('#buttonWrapper', 'button-high-tide', 'highTideButton');
-      buttonMaker('#buttonWrapper', 'button-tsunami', 'tsunamiButton');
-      buttonMaker('#buttonWrapper', 'button-inundation', 'inundationButton');
-      buttonMaker('#buttonWrapper', 'button-eruption', 'eruptionButton');
-      buttonMaker('#buttonWrapper', 'button-fire', 'fireButton');
-      buttonMaker('#buttonWrapper', 'button-typhoon', 'typhoonButton');
-      return buttonMaker('#buttonWrapper', 'button-others', 'othersButton');
+      disasterButtonMaker('#buttonWrapper', 'button-earthquake', 'earthquakeButton');
+      disasterButtonMaker('#buttonWrapper', 'button-flood', 'floodButton');
+      disasterButtonMaker('#buttonWrapper', 'button-high-tide', 'highTideButton');
+      disasterButtonMaker('#buttonWrapper', 'button-tsunami', 'tsunamiButton');
+      disasterButtonMaker('#buttonWrapper', 'button-inundation', 'inundationButton');
+      disasterButtonMaker('#buttonWrapper', 'button-eruption', 'eruptionButton');
+      disasterButtonMaker('#buttonWrapper', 'button-fire', 'fireButton');
+      disasterButtonMaker('#buttonWrapper', 'button-typhoon', 'typhoonButton');
+      return disasterButtonMaker('#buttonWrapper', 'button-others', 'othersButton');
     };
     partsReset();
     descriptionCreate();
@@ -64,14 +72,37 @@
 }).call(this);
 
 (function() {
-
+  window.guidance = function(disasterClassName) {
+    var descriptionCreate, guideInsert, partsReset;
+    if (disasterClassName == null) {
+      disasterClassName = 'button-earthquake';
+    }
+    partsReset = function() {
+      $('#contents').html('<div id="description" class="guidance-description"></div>');
+      $('#contents').append('<div id="guideWrapper" class="guide-wrapper"></div>');
+      return window.desasterName = disasterClassName.match(/[a-z]+/g)[1];
+    };
+    descriptionCreate = function() {
+      $('#description').append('<div id="nextButton" class="button-next ' + disasterClassName + '">' + t('guidance.goToNext') + '</div>');
+      return $('#nextButton').on('click', function() {
+        return console.log('clicked');
+      });
+    };
+    guideInsert = function() {
+      $('#guideWrapper').append(t('guidance.' + desasterName));
+      return $('#guideWrapper').append('<a href="' + t('guidance.' + desasterName + 'Link') + '" class="link-to-detail link-' + desasterName + '" target="_blank">' + t('guidance.linkToDetail') + '</a>');
+    };
+    partsReset();
+    descriptionCreate();
+    return guideInsert();
+  };
 
 }).call(this);
 
 (function() {
   window.onload = function() {
     navbarReset();
-    return buttonList();
+    return guidance();
   };
 
 }).call(this);
@@ -81,7 +112,6 @@
     $('#navButton').on('click', function() {
       return $('#pageNav').slideToggle('fast');
     });
-    $('#backButton').text('< ' + t('navbar.back'));
     $('#navButton').text(t('navbar.menu'));
     $('.navbar h1').text(t('navbar.title'));
     return $('nav#pageNav ul').html('<li>koumoku</li>');

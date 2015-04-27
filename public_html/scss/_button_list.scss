@@ -37,7 +37,11 @@
     float: none;
     font-size: 20px;
     &:hover {
-      opacity: 1;
+      background-color: $sample-button-color;
+      border-top: 5px solid lighten($sample-button-color,5%);
+      border-left: 5px solid lighten($sample-button-color,5%);
+      border-right: 5px solid darken($sample-button-color,5%);
+      border-bottom: 5px solid darken($sample-button-color,5%);
     }
   }
 
@@ -50,8 +54,8 @@
     @include button-detail($flood-button-color);
     padding: 23px 0 0;
   }
-  &.button-high-tide {
-    @include button-detail($high-tide-button-color);
+  &.button-hightide {
+    @include button-detail($hightide-button-color);
     padding: 23px 0 0;
   }
   &.button-tsunami {

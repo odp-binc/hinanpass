@@ -4,14 +4,20 @@ window.buttonList = ->
   partsReset = ->
     $('#contents').html '<div id="description" class="top-description"></div>'
     $('#contents').append '<div id="buttonWrapper"></div>'
+    $('#backButton').html ''
+    $('#backButton').off()
+    $('#contents').removeClass 'map'
+    location.hash = ''
 
   # ボタンの生成
   disasterButtonMaker = (appendElement,buttonClassName,buttonIdName) ->
     $(appendElement).append '<div id="' + buttonIdName + '" class="button ' + buttonClassName + '"><p>'+ t('buttonList.buttons.' + buttonIdName) + '</p></div>'
     $('#' + buttonIdName).on 'click' , ->
-      window.prev = buttonList
-      $('#backButton').text '< ' + t 'navbar.back'
-      guidance(buttonClassName)
+      prev.push ''
+      $('#backButton').html '< ' + t('navbar.back')
+      $('#backButton').on 'click' , ->
+        location.hash = prev.pop()
+      location.hash = buttonClassName.match(/[a-z]+/g)[1]
 
   # div#desctiptionに説明を追加
   descriptionCreate = ->
@@ -23,7 +29,7 @@ window.buttonList = ->
   disasterButtonCreate = ->
     disasterButtonMaker '#buttonWrapper' , 'button-earthquake' , 'earthquakeButton'
     disasterButtonMaker '#buttonWrapper' , 'button-flood' , 'floodButton'
-    disasterButtonMaker '#buttonWrapper' , 'button-high-tide' , 'highTideButton'
+    disasterButtonMaker '#buttonWrapper' , 'button-hightide' , 'hightideButton'
     disasterButtonMaker '#buttonWrapper' , 'button-tsunami' , 'tsunamiButton'
     disasterButtonMaker '#buttonWrapper' , 'button-inundation' , 'inundationButton'
     disasterButtonMaker '#buttonWrapper' , 'button-eruption' , 'eruptionButton'
@@ -32,7 +38,7 @@ window.buttonList = ->
     disasterButtonMaker '#buttonWrapper' , 'button-others' , 'othersButton'
 
 
-  # 関数が呼び出された時に実行するメソッド
+  # 関数が呼び出された時に実行するメソッド  
   partsReset()
   descriptionCreate()
   disasterButtonCreate()

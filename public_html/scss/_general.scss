@@ -17,6 +17,7 @@
     border-right: 5px solid darken($color,10%);
     border-bottom: 5px solid darken($color,10%);
   }
+  
 }
 
 // style
@@ -30,6 +31,7 @@ div.container {
   min-height: 100%;
   &.map {
     width: 100%;
+    max-width: 100%;
   }
 }
 

@@ -18,6 +18,7 @@ x18n.register 'ja',
       fireButton: '火事',
       typhoonButton: '風水<br>被害',
       othersButton: 'その<br>ほか'
+
   guidance: 
     goToNext: '次に進む',
     linkToDetail: '詳しくはこちら',
@@ -102,4 +103,72 @@ x18n.register 'ja',
     eruptionLink: 'http://google.com',
     fireLink: 'http://google.com',
     typhoonLink: 'http://google.com'
+
+  sparql:
+    url:
+      areacode: 'http://statdb.nstac.go.jp/lod/sparql',
+      facilities: 'http://54.65.46.57/api/v1/sparql',
+    query:
+      areacode: [
+        'select distinct ?areacode {?s rdfs:label "'
+        '"@ja; dcterms:identifier ?areacode.}'],
+      baseFacilities: [
+        'prefix rdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#>' + 
+        'prefix rdfs:<http://www.w3.org/2000/01/rdf-schema#>' + 
+        'prefix odp:<http://odp.jig.jp/odp/1.0#>' + 
+        'prefix sac:<http://statdb.nstac.go.jp/lod/sac/C>' + 
+        'prefix schema:<http://schema.org/>' + 
+        'prefix jrrk:<http://purl.org/jrrk#>' + 
+        'prefix geo:<http://www.w3.org/2003/01/geo/wgs84_pos#>' + 
+        'prefix imi:<http://imi.ipa.go.jp/ns/core/rdf#>' + 
+        'select distinct ?lat ?long ' + 
+        '?address ?category ?name ' + 
+        '?description ?capacity ?target ' + 
+        '?note ?landslide ?sealevel ?height ?telephone {' + 
+        '?s rdf:type jrrk:EmergencyFacility;' + 
+        'jrrk:refArea sac:' , 
+        '; geo:lat ?lat;' + 
+        'geo:long ?long.' , 
+        'optional {' + 
+        '?s imi:住所 ?addressNode.' + 
+        '?addressNode imi:表記 ?address.' + 
+        '}' + 
+        'optional { ?s imi:種別 ?category. }' + 
+        'optional { ?s imi:説明 ?description. }' + 
+        'optional { ?s odp:capacity ?capacity. }' + 
+        'optional {' + 
+        '?s odp:target ?targetNode.' + 
+        '?targetNode rdfs:label ?target.' + 
+        '}' + 
+        'optional { ?s schema:telephone ?telephone. }' + 
+        'optional { ?s jrrk:notesAboutTarget ?note. }' + 
+        'optional { ?s odp:supportLandslide ?landslide. }' + 
+        'optional { ?s odp:aboveSeaLevel ?sealevel. }' + 
+        'optional { ?s odp:height ?height. }' + 
+        'optional {' + 
+        '?s imi:名称 ?nameNode.' + 
+        '?nameNode imi:表記 ?name.' + 
+        '}' + 
+        '}' 
+      ]
+      kind:
+        earthquake: '?s odp:supportEarthquake true.'
+        flood: '?s odp:supportFlood true.'
+        hightide: '?s odp:supportHighTide true.'
+        tsunami: '?s odp:supportTsunami true.'
+        inundation: '?s odp:supportInundation true.'
+        eruption: '?s odp:supportVolcanic true.'
+        fire: '?s odp:supportLargeFire true.'
+        typhoon: ''
+        others: ''
+
+  information:
+    capacity: '収容人数 : '
+    target: '対象地区 : '
+    landslide:
+      true: '土砂災害○'
+      false: '土砂災害×'
+    sealevel: '海抜 : '
+    height: '建物の高さ : '
+
 

@@ -1,0 +1,34 @@
+div#contents.map {
+  position: relative;
+  z-index: -4;
+  div#map_canvas {
+    position: relative;
+    z-index: -3;
+  }
+}
+
+div.gm-style-iw {
+  h4 {
+    font-size: 18px;
+    margin-bottom: 5px;
+  }
+  .category {
+    display: inline-block;
+    padding: 2px 5px 0;
+    border-radius: 3px;
+    background-color: $information-category-bgcolor;
+    color: $information-category-color;
+    margin-bottom: 3px;
+  }
+  .note , .height {
+    font-size: 10px;
+  }
+  .landslide {
+    display: inline-block;
+    margin-bottom: 5px;
+  }
+  .sealevel {
+    display: inline-block;
+    margin-top: 5px;
+  }
+}

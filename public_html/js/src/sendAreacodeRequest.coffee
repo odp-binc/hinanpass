@@ -4,7 +4,7 @@ window.sendAreacodeRequest = (cityNames) ->
 
   requestCityNames = new Array()
   for cityName in cityNames
-    requestCityNames.push cityName if requestCityNames.indexOf(cityName) < 0
+    requestCityNames.push cityName if requestCityNames.indexOf(cityName) < 0 && cityName != ""
 
   
   results = new Array()

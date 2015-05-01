@@ -29,7 +29,7 @@ window.sendFacilitiesRequest = (areaCodes) ->
 
   do returnFunc = ->
     if endRequestNumber >= areaCodes.length
-      navigate results
+      facilitiesSet results
     else
       setTimeout returnFunc , 50
 

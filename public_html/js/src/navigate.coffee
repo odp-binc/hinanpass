@@ -1,52 +1,24 @@
-# トップページ、ボタンが並んでいる画面の表示
-window.navigate = (facilities) ->
+# ルート案内表示
+window.navigate = (target_lat,target_long) ->
 
-  # ピンを立てる
-  setPins = ->
-    data = new Array()
-    console.table facilities
-    for facility in facilities
-      marker = new google.maps.Marker
-        position: new google.maps.LatLng facility.lat - 0 , facility.long - 0
-        map: map
-      addDescription facility , marker
+  do tryNavigate = ->
+    if currentMarker.position.A
+      current_lat = currentMarker.position.A
+      current_long = currentMarker.position.F
 
-  # ピンタップ時の説明の吹き出しを作る
-  addDescription = (facility , marker) ->
-    content = ''
+      target_lat = target_lat - 0
+      target_long = target_long - 0
 
-    if facility.name
-      content += "<h4>#{facility.name}</h4>"
-    if facility.category
-      content += "<span class='category'>#{facility.category}</span><br>"
-    if facility.address
-      content += "<span class='address'>#{facility.address}</span><br>"
-    if facility.target
-      targetString = t('information.target') + facility.target
-      noteString = ''
-      noteString = '( ' + facility.note + ' )' if facility.note
-      content += "<span class='target'>#{targetString} <span class='note'>#{noteString}</span></span><br>"
-    if facility.capacity
-      capacityString = t('information.capacity') + facility.capacity
-      content += "<span class='capacity'>#{capacityString}</span> "
-    if facility.landslide
-      landSlideString = t('information.landslide.' + facility.landslide)
-      content += "/ <span class='landslide'>#{landSlideString}</span><br>"
-    if facility.description
-      content += "#{facility.description}<br>"
-    if facility.sealevel
-      seaLevelString = t('information.sealevel') + facility.sealevel
-      heightString = ''
-      heightString = '( ' + t('information.height') + facility.height + 'm )' if facility.height
-      content += "<span class='sealevel'>#{seaLevelString}m <span class='height'>#{heightString}</span></span><br>"
-    if facility.telephone
-      content += "<span class='telephone'>#{facility.telephone}</span>"
+      directionsDisplay.setMap null
 
-    google.maps.event.addListener marker, 'click', (event) ->
-      new google.maps.InfoWindow(
-        content: content
-      ).open marker.getMap(), marker
+      request = 
+        origin: new google.maps.LatLng current_lat, current_long
+        destination: new google.maps.LatLng target_lat, target_long
+        travelMode: google.maps.TravelMode.WALKING 
 
-
-  # 関数が呼び出された時に実行するメソッド
-  setPins()
+      directionsService = new google.maps.DirectionsService()
+      directionsDisplay.setMap map
+      directionsService.route request, (result,status) ->
+        directionsDisplay.setDirections result if status == google.maps.DirectionsStatus.OK
+    else
+      setTimeout tryNavigate , 100

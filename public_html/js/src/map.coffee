@@ -9,19 +9,19 @@ window.makeMapView = ->
   mapMake = ->
     navigator.geolocation.getCurrentPosition (position) ->
 
-      latitude = position.coords.latitude
-      longitude = position.coords.longitude
+        latitude = position.coords.latitude
+        longitude = position.coords.longitude
 
-      mapOptions = 
-        center: new google.maps.LatLng(latitude, longitude),
-        zoom: 16,
-        mapTypeId: google.maps.MapTypeId.ROADMAP
-      window.map = new google.maps.Map(document.getElementById("map_canvas"),mapOptions)
-      getCityNames latitude, longitude
+        mapOptions = 
+          center: new google.maps.LatLng(latitude, longitude),
+          zoom: 16,
+          mapTypeId: google.maps.MapTypeId.ROADMAP
+        window.map = new google.maps.Map(document.getElementById("map_canvas"),mapOptions)
+        getCityNames latitude, longitude
 
-    , ->
-      # TODO : 修正が必要
-      alert '現在地の取得に失敗しました!'
+      , ->
+        # TODO : 修正が必要
+        alert '現在地の取得に失敗しました!'
     
 
   # 関数が呼び出された時に実行するメソッド

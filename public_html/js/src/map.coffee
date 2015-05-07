@@ -1,4 +1,4 @@
-# トップページ、ボタンが並んでいる画面の表示
+# 地図画面の準備
 window.makeMapView = ->
   # 大枠を作る
   partsReset = ->
@@ -20,8 +20,9 @@ window.makeMapView = ->
         getCityNames latitude, longitude
 
       , ->
-        # TODO : 修正が必要
-        alert '現在地の取得に失敗しました!'
+        alert '現在地の取得に失敗しました!位置情報の使用を許可してください!!'
+      ,
+        maximumAge: 0
     
 
   # 関数が呼び出された時に実行するメソッド

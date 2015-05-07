@@ -1,3 +1,4 @@
+# 周辺の市の名前を取得
 window.getCityNames = (latitude, longitude) ->
   # 何キロ程度までの範囲の避難所を取得するか
   distanceThreshold = 3

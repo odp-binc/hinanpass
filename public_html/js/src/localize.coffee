@@ -170,5 +170,8 @@ x18n.register 'ja',
       false: '土砂災害×'
     sealevel: '海抜 : '
     height: '建物の高さ : '
+    here: 'ここへ避難する'
+
+  heightDescription: '避難高度'
 
 

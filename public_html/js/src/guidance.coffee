@@ -1,4 +1,4 @@
-# トップページ、ボタンが並んでいる画面の表示
+# 避難方法の表示画面
 window.guidance = ->
 
   disasterName = location.hash.match(/[a-zA-Z]+/)[0]

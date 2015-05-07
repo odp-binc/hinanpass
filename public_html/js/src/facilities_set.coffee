@@ -1,4 +1,4 @@
-# トップページ、ボタンが並んでいる画面の表示
+# 避難所のマーカをセットする
 window.facilitiesSet = (facilities) ->
 
   disasterName = location.hash.match(/[a-zA-Z]+/)[0]
@@ -7,20 +7,25 @@ window.facilitiesSet = (facilities) ->
     suppressMarkers: true
     draggable: true
   )
+  window.marker = new Array()
 
   # ピンを立てる
   setPins = ->
     data = new Array()
-    console.table facilities
-    for facility in facilities
-      marker = new google.maps.Marker
-        position: new google.maps.LatLng facility.lat - 0 , facility.long - 0
+    switch disasterName
+      when 'flood','hightide','tsunami','inundation','typhoon'
+        heightEdit()
+    for i in [0...facilities.length]
+      marker[i] = new Object()
+      marker[i].marker = new google.maps.Marker
+        position: new google.maps.LatLng facilities[i].lat - 0 , facilities[i].long - 0
         map: map
-      addDescription facility , marker
+      marker[i].height = facilities[i].sealevel - 0
+      addDescription facilities[i] , marker[i].marker
 
   # ピンタップ時の説明の吹き出しを作る
   addDescription = (facility , marker) ->
-    content = ''
+    content = new String()
 
     if facility.name
       content += "<h4>#{facility.name}</h4>"
@@ -48,7 +53,7 @@ window.facilitiesSet = (facilities) ->
       content += "<span class='sealevel'>#{seaLevelString}m <span class='height'>#{heightString}</span></span><br>"
     if facility.telephone
       content += "<span class='telephone'>TEL : #{facility.telephone}</span>"
-    content += "<div class='navigate-button #{disasterName}' onClick='navigate(#{facility.lat},#{facility.long});'>ここへ</div>"
+    content += "<div class='navigate-button #{disasterName}' onClick='navigate(#{facility.lat},#{facility.long});'>" + t('information.here') + "</div>"
 
     google.maps.event.addListener marker, 'click', (event) ->
       new google.maps.InfoWindow(
@@ -59,7 +64,6 @@ window.facilitiesSet = (facilities) ->
   currentPosition = ->
     window.currentMarker = null
     watch = navigator.geolocation.watchPosition (position) ->
-      console.log position.coords.latitude, position.coords.longitude
       window.currentMarker.setMap(null) if currentMarker
       window.currentMarker = new google.maps.Marker
         position: new google.maps.LatLng position.coords.latitude, position.coords.longitude

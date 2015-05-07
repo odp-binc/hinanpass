@@ -1,3 +1,4 @@
+# 市町村名から市区町村コードを取得
 window.sendAreacodeRequest = (cityNames) ->
   url = t 'sparql.url.areacode'
   queryParts = t 'sparql.query.areacode'

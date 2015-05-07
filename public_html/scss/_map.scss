@@ -32,3 +32,40 @@ div.gm-style-iw {
     margin-top: 5px;
   }
 }
+
+div.height-edit {
+  position: fixed;
+  width: 76%;
+  height: 35px;
+  right: 12%;
+  top: 80px;
+  background-color: $height-edit-bgcolor;
+  border: $height-edit-border;
+  box-shadow: 0px 1px 2px rgba(0,0,0,0.3);
+  line-height: 35px;
+  box-sizing: border-box;
+  padding: 0 0 0 10px;
+  div {
+    display: inline-block;
+    &#heightEditMinusButton {
+      height: 100%;
+      width: 32px;
+      text-align: center;
+      color: #ffffff;
+      background-color: $height-edit-minus-bgcolor;
+      position: absolute;
+      right: 0px;
+      text-shadow: 0 -2px rgba(0,0,0,0.6);
+    }
+    &#heightEditPlusButton {
+      height: 100%;
+      width: 32px;
+      text-align: center;
+      color: #ffffff;
+      background-color: $height-edit-plus-bgcolor;
+      position: absolute;
+      right: 32px;
+      text-shadow: 0 -2px rgba(0,0,0,0.6);
+    }
+  }
+}

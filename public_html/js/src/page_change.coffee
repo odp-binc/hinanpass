@@ -1,3 +1,4 @@
+# ページ遷移
 window.pageChange = ->
   hash = location.hash
   if !hash

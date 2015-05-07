@@ -1,3 +1,4 @@
+# エリアコードから避難所情報を取得
 window.sendFacilitiesRequest = (areaCodes) ->
   url = t 'sparql.url.facilities'
   queryParts = t 'sparql.query.baseFacilities'

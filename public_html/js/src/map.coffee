@@ -20,7 +20,7 @@ window.makeMapView = ->
         getCityNames latitude, longitude
 
       , ->
-        alert '現在地の取得に失敗しました!位置情報の使用を許可してください!!'
+        alert t 'error.geolocation'
       ,
         maximumAge: 0
     

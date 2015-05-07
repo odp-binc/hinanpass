@@ -9,4 +9,7 @@ window.navbarReset = ->
   $('.navbar h1').text t 'navbar.title'
   
   # メニュー項目の追加
-  $('nav#pageNav ul').html '<li>koumoku</li>'
+  $('nav#pageNav ul').html '
+    <li>koumoku</li>
+    <li>koumoku</li>
+  '

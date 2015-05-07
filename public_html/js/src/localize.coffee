@@ -174,4 +174,7 @@ x18n.register 'ja',
 
   heightDescription: '避難高度'
 
+  error: 
+    geolocation: '現在地の取得に失敗しました。位置情報の使用を許可してください。'
+
 

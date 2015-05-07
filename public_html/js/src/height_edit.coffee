@@ -1,28 +1,30 @@
 window.heightEdit = ->
+  defaultHeight = 15
   initialize = ->
-    defaultHeight = 5
-    window.currentHeight = defaultHeight
     $('#contents').append '<div id="heightEdit" class="height-edit"></div>'
     $('#heightEdit').append '<div id="heightEditInput">テストテキスト</div>'
     heightVisibility()
-    $('#heightEdit').append '<div id="heightEditPlusButton">▲</div>'
-    $('#heightEdit').append '<div id="heightEditMinusButton">▼</div>'
-    $('#heightEditPlusButton').on 'click' , -> heightVisibility 'high'
-    $('#heightEditMinusButton').on 'click' , -> heightVisibility 'low'
+    $('#heightEdit').append '
+    <div id="heightEditSlider">
+      <form>
+        <input type="range" min="0" max="50" value="' + defaultHeight + '">
+      </form>
+    </div>'
+    $('input[type="range"]').bind 'touchmove' , ->
+      heightVisibility this.value
+    $('input[type="range"]').bind 'mousemove' , ->
+      heightVisibility this.value
 
-  heightVisibility = (elevation = 'stay') ->
-    if elevation == 'low' && currentHeight > 0
-      currentHeight--
-    else if elevation == 'high'
-      currentHeight++
+
+  heightVisibility = (requestHeight = defaultHeight) ->
 
     for mark in marker
-      if mark.height >= currentHeight
+      if mark.height >= requestHeight
         mark.marker.setVisible true
       else
         mark.marker.setVisible false
 
-    $('#heightEditInput').text t('heightDescription') + " #{currentHeight}m"
+    $('#heightEditInput').html t('heightDescription') + " <span>#{requestHeight}m</span>"
 
 
 

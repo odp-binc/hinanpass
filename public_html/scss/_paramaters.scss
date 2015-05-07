@@ -39,7 +39,9 @@ $information-category-color: #ffffff;
 $information-category-bgcolor: #999999;
 
 // height edit
-$height-edit-bgcolor: #e6e6e6;
+$height-edit-bgcolor: rgba(230,230,230,0.85);
 $height-edit-border: 1.5px solid #666666;
-$height-edit-minus-bgcolor: #0071cb;
-$height-edit-plus-bgcolor: #c1272d;
+
+// navigate
+$navigate-button-bgcolor: #666666;
+$navigate-button-text-color: #ffffff;

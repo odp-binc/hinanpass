@@ -6,8 +6,14 @@ window.pageChange = ->
   else
     if hash.match(/[a-zA-Z]+/g).length == 1
       switch hash.match(/[a-zA-Z]+/)[0]
-        when 'earthquake','flood','hightide','tsunami','inundation','eruption','fire','typhoon','others'
+        when 'earthquake','flood','hightide','tsunami','inundation','eruption','fire','typhoon'
           guidance()
+          break
+        when 'others'
+          makeMapView()
+          break
+        when 'license'
+          license()
           break
         else
           buttonList()

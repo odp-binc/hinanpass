@@ -68,7 +68,7 @@ window.facilitiesSet = (facilities) ->
       window.currentMarker = new google.maps.Marker
         position: new google.maps.LatLng position.coords.latitude, position.coords.longitude
         map: map
-        icon: new google.maps.MarkerImage 'images/currentMarker.png', new google.maps.Size(22,22), new google.maps.Point(0,0), new google.maps.Point(11,11)
+        icon: new google.maps.MarkerImage 'images/currentMarker.png', new google.maps.Size(68,68), new google.maps.Point(0,0), new google.maps.Point(11,11), new google.maps.Size(22,22)
 
 
   # 関数が呼び出された時に実行するメソッド

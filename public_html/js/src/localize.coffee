@@ -3,6 +3,9 @@ x18n.register 'ja',
     title: 'ヒナンくん',
     back: '戻る',
     menu: 'メニュー'
+    nav:
+      top: 'トップへ戻る'
+      license: 'ライセンス情報'
   buttonList: 
     description: 
       sentenceBeforeButton: '対応する災害の',
@@ -176,5 +179,38 @@ x18n.register 'ja',
 
   error: 
     geolocation: '現在地の取得に失敗しました。位置情報の使用を許可してください。'
+
+  license:
+    data:
+      title: 'オープンデータ'
+      text: 'このアプリは以下のオープンデータを利用しています'
+      def:
+        titles: [
+          '避難所データ'
+          '自治体コード'
+        ]
+        descriptions: [
+          'powered by <a href="http://odp.jig.jp/" about="_blank">オープンデータプラットフォーム</a>'
+          '<a href="http://statdb.nstac.go.jp/" about="_blank">次世代統計利用システム</a>
+          <small>このサービスは、次世代統計利用システムのAPI機能を使用していますが、' +
+          'サービスの内容は総務省統計局又は独立行政法人統計センターによって' +
+          '保証されたものではありません。</small>'
+        ]
+    library:
+      title: 'ライブラリ'
+      text: 'このアプリは以下のライブラリを利用しています'
+      def:
+        titles: [
+          'jQuery v1.10.2'
+          'jquery.jsonp 2.4.0'
+          '<a href="https://github.com/js-coder/x18n" about="_blank">x18n</a>'
+          '<a href="http://benalman.com/about/license/" about="_blank">jQuery hashchange event v1.3</a>'
+        ]
+        descriptions: [
+          '(c) 2005, 2013 jQuery Foundation, Inc.'
+          '(c) 2012 Julian Aubourg'
+          '(c) 2012 Florian H.'
+          '(c) 2010 "Cowboy" Ben AlmanDual licensed under the MIT and GPL licenses.'
+        ]
 
 

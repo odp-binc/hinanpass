@@ -5,7 +5,7 @@ window.navbarReset = ->
     $('#pageNav').slideToggle 'fast'
 
   # メニューバーの文字の挿入
-  $('#navButton').text t 'navbar.menu'
+  $('#navButton').html '<img src="images/setting.png" alt="setting">'
   $('.navbar h1').text t 'navbar.title'
   
   # メニュー項目の追加

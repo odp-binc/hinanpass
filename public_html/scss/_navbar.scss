@@ -2,7 +2,7 @@ header.navbar {
   // ナビゲーションバー全体に対する指定
   position: fixed;
   color: $title-text-color;
-  min-height: 43px;
+  min-height: 55px;
   text-align: center;
   width: 100%;
   background-color: $title-bar-background-color;
@@ -18,14 +18,14 @@ header.navbar {
   div.nav-button {
     position: absolute;
     z-index: 3;
-    top: 8px;
-    right: 10px;
+    top: 13px;
+    right: 13px;
   }
   // タイトル
   h1 {
     font-weight: bold;
     font-size: $title-font-size;
-    padding: 5px 0;
+    line-height: 55px;
   }
   // メニューボタン押下時に出てくる項目
   nav {

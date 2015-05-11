@@ -1,38 +1,49 @@
 # エリアコードから避難所情報を取得
-window.sendFacilitiesRequest = (areaCodes) ->
+window.sendFacilitiesRequest = (currentLat,currentLong) ->
   url = t 'sparql.url.facilities'
   queryParts = t 'sparql.query.baseFacilities'
   disasterName = location.hash.match(/[a-zA-Z]+/)[0]
+  console.log currentLat , currentLong
+
+  distanceThreshold = 10 #[km]
+
+  latdelta = distanceThreshold * 360 / 40076.5 #[deg]
+  longdelta = distanceThreshold * 360 / 40008.6 / Math.cos(currentLat * Math.PI / 180) #[deg]
 
   results = new Array()
   endRequestNumber = 0
 
+  # localize.coffee内に投げているクエリ(の一部)がある
+  query = queryParts[0] + t('sparql.query.kind.' + disasterName) + 
+          queryParts[1] + (currentLat - latdelta) +
+          queryParts[2] + (currentLat + latdelta) +
+          queryParts[3] + (currentLong - longdelta) +
+          queryParts[4] + (currentLong + longdelta) +
+          queryParts[5]
 
-  for areaCode in areaCodes
-    query = queryParts[0] + areaCode + queryParts[1] + t('sparql.query.kind.' + disasterName) + queryParts[2]
-    $.jsonp {
-      url: url,
-      callbackParameter: 'callback',
-      cache: false,
-      data: 
-        output: 'json',
-        app_name: 'hinankun',
-        query: query
-      ,
-      success: (json, httpStatus) ->
-        results = results.concat dataParse json.results.bindings
-        endRequestNumber++
-      ,
-      error: (xOptions, textStatus) ->
-        # 要修正
-        console.log textStatus
-    }
+  $.jsonp {
+    url: url,
+    callbackParameter: 'callback',
+    cache: false,
+    data: 
+      output: 'json',
+      app_name: 'hinankun',
+      query: query
+    ,
+    success: (json, httpStatus) ->
+      results = results.concat dataParse json.results.bindings
+      endRequestNumber++
+    ,
+    error: (xOptions, textStatus) ->
+      # PENDING
+      alert t 'error.traffic'
+  }
 
-  do returnFunc = ->
-    if endRequestNumber >= areaCodes.length
+  do callFacilitySet = ->
+    if endRequestNumber >= 1
       facilitiesSet results
     else
-      setTimeout returnFunc , 50
+      setTimeout callFacilitySet , 50
 
   dataParse = (data) ->
     parsedData = new Array()
@@ -65,6 +76,3 @@ window.sendFacilitiesRequest = (areaCodes) ->
       parsedData.push parsedDatum
 
     return parsedData
-
-
-

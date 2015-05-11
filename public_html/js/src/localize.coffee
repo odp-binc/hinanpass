@@ -108,50 +108,52 @@ x18n.register 'ja',
 
   sparql:
     url:
-      areacode: 'http://statdb.nstac.go.jp/lod/sparql',
-      facilities: 'http://54.65.46.57/api/v1/sparql',
+      facilities: 'http://54.65.46.57/api/v1/sparql'
     query:
-      areacode: [
-        'select distinct ?areacode {?s rdfs:label "'
-        '"@ja; dcterms:identifier ?areacode.}'],
       baseFacilities: [
-        'prefix rdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#>' + 
-        'prefix rdfs:<http://www.w3.org/2000/01/rdf-schema#>' + 
-        'prefix odp:<http://odp.jig.jp/odp/1.0#>' + 
-        'prefix sac:<http://statdb.nstac.go.jp/lod/sac/C>' + 
-        'prefix schema:<http://schema.org/>' + 
-        'prefix jrrk:<http://purl.org/jrrk#>' + 
-        'prefix geo:<http://www.w3.org/2003/01/geo/wgs84_pos#>' + 
-        'prefix imi:<http://imi.ipa.go.jp/ns/core/rdf#>' + 
-        'select distinct ?lat ?long ' + 
-        '?address ?category ?name ' + 
-        '?description ?capacity ?target ' + 
-        '?note ?landslide ?sealevel ?height ?telephone {' + 
-        '?s rdf:type jrrk:EmergencyFacility;' + 
-        'jrrk:refArea sac:' , 
-        '; geo:lat ?lat;' + 
-        'geo:long ?long.' , 
-        'optional {' + 
-        '?s imi:住所 ?addressNode.' + 
-        '?addressNode imi:表記 ?address.' + 
-        '}' + 
-        'optional { ?s imi:種別 ?category. }' + 
-        'optional { ?s imi:説明 ?description. }' + 
-        'optional { ?s odp:capacity ?capacity. }' + 
-        'optional {' + 
-        '?s odp:target ?targetNode.' + 
-        '?targetNode rdfs:label ?target.' + 
-        '}' + 
-        'optional { ?s schema:telephone ?telephone. }' + 
-        'optional { ?s jrrk:notesAboutTarget ?note. }' + 
-        'optional { ?s odp:supportLandslide ?landslide. }' + 
-        'optional { ?s odp:aboveSeaLevel ?sealevel. }' + 
-        'optional { ?s odp:height ?height. }' + 
-        'optional {' + 
-        '?s imi:名称 ?nameNode.' + 
-        '?nameNode imi:表記 ?name.' + 
-        '}' + 
-        '}' 
+        'prefix rdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+        prefix rdfs:<http://www.w3.org/2000/01/rdf-schema#>
+        prefix odp:<http://odp.jig.jp/odp/1.0#>
+        prefix sac:<http://statdb.nstac.go.jp/lod/sac/C>
+        prefix schema:<http://schema.org/>
+        prefix xsd: <http://www.w3.org/2001/XMLSchema#> 
+        prefix jrrk:<http://purl.org/jrrk#>
+        prefix geo:<http://www.w3.org/2003/01/geo/wgs84_pos#>
+        prefix imi:<http://imi.ipa.go.jp/ns/core/rdf#>
+        select distinct ?lat ?long 
+          ?address ?category ?name 
+          ?description ?capacity ?target 
+          ?note ?landslide ?sealevel ?height ?telephone {
+          ?s rdf:type jrrk:EmergencyFacility;
+          geo:lat ?lat;
+          geo:long ?long.'  
+          'optional {
+            ?s imi:住所 ?addressNode.
+            ?addressNode imi:表記 ?address.
+          } 
+          optional { ?s imi:種別 ?category. }
+          optional { ?s imi:説明 ?description. }
+          optional { ?s odp:capacity ?capacity. }
+          optional {
+            ?s odp:target ?targetNode.
+            ?targetNode rdfs:label ?target.
+          }
+          optional { ?s schema:telephone ?telephone. }
+          optional { ?s jrrk:notesAboutTarget ?note. }
+          optional { ?s odp:supportLandslide ?landslide. }
+          optional { ?s odp:aboveSeaLevel ?sealevel. }
+          optional { ?s odp:height ?height. }
+          optional {
+            ?s imi:名称 ?nameNode.
+            ?nameNode imi:表記 ?name.
+          }
+          filter(
+            xsd:float(?lat) > '
+            ' && xsd:float(?lat) < '
+            ' && xsd:float(?long) > '
+            ' && xsd:float(?long) < '
+          ' )
+        } LIMIT 10000' 
       ]
       kind:
         earthquake: '?s odp:supportEarthquake true.'
@@ -177,7 +179,14 @@ x18n.register 'ja',
   heightDescription: '避難高度'
 
   error: 
-    geolocation: '現在地の取得に失敗しました。位置情報の使用を許可してください。'
+    geolocation: '<p>現在地の取得が行えませんでした。<br>
+      端末の設定から位置情報の使用を許可してください。</p>
+      <p>また、以下のフォームに地名や近くの建物の名前を入力して現在地を設定することもできます。</p>'
+    traffic: '通信エラーが発生しました。
+      \n通信状況を確認して再読み込みをしてください。'
+    zeroResults: '地名に該当する場所が1つも見つかりませんでした
+      \n別の内容を入力してください'
+    unknown: '地名から該当する場所の取得が行えませんでした'
 
   license:
     data:

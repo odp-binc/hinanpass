@@ -1,0 +1,40 @@
+div.error {
+  background-color: $error-bgcolor;
+  padding: 5%;
+  margin: 5%;
+  font-size: 14px;
+  min-height: 80%;
+  border: $description-border;
+  border-radius: 5px;
+  p {
+    padding: 15px 0;
+    &:nth-child(2) {
+      border-top: $description-border;
+    }
+  }
+  form {
+    input { 
+      border: $description-border;
+      border-radius: 5px;
+      min-height: 30px;
+      width: 67%;
+      box-sizing: border-box;
+      display: block;
+      float: left;
+      margin-right: 3%;
+    }
+    div {
+      border-radius: 5px;
+      min-height: 30px;
+      width: 30%;
+      display: block;
+      box-sizing: border-box;
+      float: left;
+      line-height: 30px;
+      text-align: center;
+      background-color: $title-bar-background-color;
+      color: $title-text-color;
+      font-weight: bold;
+    }
+  }
+}

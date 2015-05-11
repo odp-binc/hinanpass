@@ -2,12 +2,12 @@
 window.makeMapView = ->
   window.geolocationGetableFlag = true;
   # 大枠を作る
-  partsReset = ->
+  do partsReset = ->
     $('#contents').addClass 'map'
     $('#contents').html '<div id="map_canvas" style="width:100%; height:100%"></div>'
   
   # 地図を作る・初期化
-  mapMake = ->
+  do mapMake = ->
     navigator.geolocation.getCurrentPosition (position) ->
 
         latitude = position.coords.latitude
@@ -18,6 +18,7 @@ window.makeMapView = ->
           zoom: 16,
           mapTypeId: google.maps.MapTypeId.ROADMAP
         window.map = new google.maps.Map(document.getElementById("map_canvas"),mapOptions)
+
         sendFacilitiesRequest latitude, longitude
 
       , ->
@@ -71,12 +72,5 @@ window.makeMapView = ->
 
       .error ->
         alert t 'error.traffic'
-        
-      
 
-    
-
-  # 関数が呼び出された時に実行するメソッド
-  partsReset()
-  mapMake()
 

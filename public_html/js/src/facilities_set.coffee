@@ -9,20 +9,6 @@ window.facilitiesSet = (facilities) ->
   )
   window.marker = new Array()
 
-  # ピンを立てる
-  setPins = ->
-    data = new Array()
-    switch disasterName
-      when 'flood','hightide','tsunami','inundation','typhoon'
-        heightEdit()
-    for i in [0...facilities.length]
-      marker[i] = new Object()
-      marker[i].marker = new google.maps.Marker
-        position: new google.maps.LatLng facilities[i].lat - 0 , facilities[i].long - 0
-        map: map
-      marker[i].height = facilities[i].sealevel - 0
-      addDescription facilities[i] , marker[i].marker
-
   # ピンタップ時の説明の吹き出しを作る
   addDescription = (facility , marker) ->
     content = new String()
@@ -60,17 +46,33 @@ window.facilitiesSet = (facilities) ->
         content: content
       ).open marker.getMap(), marker
 
+  # ピンを立てる
+  do setPins = ->
+    data = new Array()
+    switch disasterName
+      when 'flood','hightide','tsunami','inundation','typhoon'
+        heightEdit()
+    for i in [0...facilities.length]
+      marker[i] = new Object()
+      marker[i].marker = new google.maps.Marker
+        position: new google.maps.LatLng facilities[i].lat - 0 , facilities[i].long - 0
+        map: map
+      marker[i].height = facilities[i].sealevel - 0
+      addDescription facilities[i] , marker[i].marker
+
+
+
   # 現在地の監視
   do currentPosition = ->
-    window.currentMarker = null
-    watch = navigator.geolocation.watchPosition (position) ->
-      window.currentMarker.setMap(null) if currentMarker
-      window.currentMarker = new google.maps.Marker
-        position: new google.maps.LatLng position.coords.latitude, position.coords.longitude
-        map: map
-        icon: new google.maps.MarkerImage 'images/currentMarker.png', new google.maps.Size(68,68), new google.maps.Point(0,0), new google.maps.Point(11,11), new google.maps.Size(22,22)
-
-
-  # 関数が呼び出された時に実行するメソッド
-  setPins()
-  currentPosition()
+    if window.geolocationGetableFlag
+      window.currentMarker = null
+      watch = navigator.geolocation.watchPosition (position) ->
+        window.currentMarker.setMap(null) if currentMarker
+        window.currentMarker = new google.maps.Marker
+          position: new google.maps.LatLng position.coords.latitude, position.coords.longitude
+          map: map
+          icon: new google.maps.MarkerImage 'images/currentMarker.png', 
+                new google.maps.Size(68,68), 
+                new google.maps.Point(0,0), 
+                new google.maps.Point(11,11), 
+                new google.maps.Size(22,22)

@@ -54,7 +54,7 @@ window.makeMapView = ->
             mapTypeId: google.maps.MapTypeId.ROADMAP
           window.map = new google.maps.Map(document.getElementById("map_canvas"),mapOptions)
 
-          retrievedMarker = new google.maps.Marker
+          window.currentMarker = new google.maps.Marker
             position: new google.maps.LatLng retrievedLat,retrievedLong
             map: map
             icon: new google.maps.MarkerImage 'images/currentMarker.png',
@@ -62,6 +62,8 @@ window.makeMapView = ->
                   new google.maps.Point(0,0), 
                   new google.maps.Point(11,11), 
                   new google.maps.Size(22,22)
+
+          debugger
 
           sendFacilitiesRequest retrievedLat,retrievedLong
 

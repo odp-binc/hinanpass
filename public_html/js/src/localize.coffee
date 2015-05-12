@@ -1,6 +1,6 @@
 x18n.register 'ja',
   navbar: 
-    title: 'ヒナンくん'
+    title: '<img src="images/logo.png" alt="ヒナンパス">'
     back: '戻る'
     nav:
       top: 'トップへ戻る'
@@ -18,8 +18,8 @@ x18n.register 'ja',
       inundationButton: '浸水'
       eruptionButton: '噴火'
       fireButton: '火事'
-      typhoonButton: '風水<br>被害'
-      othersButton: 'その<br>ほか'
+      typhoonButton: '風水被害'
+      othersButton: 'その他'
 
   guidance: 
     goToNext: '次に進む',

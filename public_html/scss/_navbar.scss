@@ -20,12 +20,20 @@ header.navbar {
     z-index: 3;
     top: 13px;
     right: 13px;
+    img {
+      max-height: 30px;
+    }
   }
   // タイトル
   h1 {
     font-weight: bold;
     font-size: $title-font-size;
     line-height: 55px;
+    img {
+      max-height: 30px;
+      position: relative;
+      top: 6px;
+    }
   }
   // メニューボタン押下時に出てくる項目
   nav {
@@ -40,7 +48,7 @@ header.navbar {
         border-bottom: $title-nav-li-border;
         a {
           display: block;
-          color: #ffffff;
+          color: #666666;
           text-decoration: none;
           width: 100%;
           height: 100%;

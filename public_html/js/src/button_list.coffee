@@ -11,7 +11,11 @@ window.buttonList = ->
 
   # ボタンの生成
   disasterButtonMaker = (appendElement,buttonClassName,buttonIdName) ->
-    $(appendElement).append '<div id="' + buttonIdName + '" class="button ' + buttonClassName + '"><p>'+ t('buttonList.buttons.' + buttonIdName) + '</p></div>'
+    $(appendElement).append '<div id="' + buttonIdName + 
+                            '" class="button ' + buttonClassName + 
+                            '"><img src="images/' + buttonClassName +
+                            '.png"><p>'+ t('buttonList.buttons.' + buttonIdName) + 
+                            '</p></div>'
     $('#' + buttonIdName).on 'click' , ->
       prev.push ''
       $('#backButton').html '< ' + t('navbar.back')

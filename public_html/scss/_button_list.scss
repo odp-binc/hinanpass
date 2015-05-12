@@ -16,9 +16,14 @@
   float: left;
   background-color: #cccccc;
   margin-top: 10px;
-  font-size: 28px;
-  line-height: 35px;
+  font-size: 15px;
+  line-height: 15px;
   padding: 1px 8px;
+  img {
+    max-width: 100%;
+    display: block;
+    margin: 8px 0 8px;
+  }
   &:nth-child(3n){
     margin-left: 3.5%;
   }
@@ -36,6 +41,7 @@
     width: auto;
     float: none;
     font-size: 20px;
+    line-height: 30px;
     &:hover {
       background-color: $sample-button-color;
       border-top: 5px solid lighten($sample-button-color,5%);
@@ -48,38 +54,29 @@
   // 各種災害のボタン
   &.button-earthquake {
     @include button-detail($earthquake-button-color);
-    padding: 23px 0 0;
   }
   &.button-flood {
     @include button-detail($flood-button-color);
-    padding: 23px 0 0;
   }
   &.button-hightide {
     @include button-detail($hightide-button-color);
-    padding: 23px 0 0;
   }
   &.button-tsunami {
     @include button-detail($tsunami-button-color);
-    padding: 23px 0 0;
   }
   &.button-inundation {
     @include button-detail($inundation-button-color);
-    padding: 23px 0 0;
   }
   &.button-eruption {
     @include button-detail($eruption-button-color);
-    padding: 23px 0 0;
   }
   &.button-fire {
     @include button-detail($fire-button-color);
-    padding: 23px 0 0;
   }
   &.button-typhoon {
     @include button-detail($typhoon-button-color);
-    padding: 5px 0 0;
   }
   &.button-others {
     @include button-detail($others-button-color);
-    padding: 5px 0 0;
   }
 }

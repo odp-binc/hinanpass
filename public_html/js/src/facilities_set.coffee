@@ -44,6 +44,7 @@ window.facilitiesSet = (facilities) ->
     google.maps.event.addListener marker, 'click', (event) ->
       new google.maps.InfoWindow(
         content: content
+        pixelOffset: new google.maps.Size -23,30
       ).open marker.getMap(), marker
 
   # ピンを立てる
@@ -57,6 +58,12 @@ window.facilitiesSet = (facilities) ->
       marker[i].marker = new google.maps.Marker
         position: new google.maps.LatLng facilities[i].lat - 0 , facilities[i].long - 0
         map: map
+        icon: new google.maps.MarkerImage 'images/facilityMarker.png', 
+              new google.maps.Size(90,120),
+              new google.maps.Point(0,0), 
+              new google.maps.Point(23,53),
+              new google.maps.Size(45,60)
+        zIndex: 1
       marker[i].height = facilities[i].sealevel - 0
       addDescription facilities[i] , marker[i].marker
 
@@ -71,8 +78,9 @@ window.facilitiesSet = (facilities) ->
         window.currentMarker = new google.maps.Marker
           position: new google.maps.LatLng position.coords.latitude, position.coords.longitude
           map: map
+          zIndex: 2
           icon: new google.maps.MarkerImage 'images/currentMarker.png', 
-                new google.maps.Size(68,68), 
+                new google.maps.Size(123,154), 
                 new google.maps.Point(0,0), 
-                new google.maps.Point(11,11), 
-                new google.maps.Size(22,22)
+                new google.maps.Point(30,62), 
+                new google.maps.Size(62,77)

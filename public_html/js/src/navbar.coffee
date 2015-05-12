@@ -6,7 +6,7 @@ window.navbarReset = ->
 
   # メニューバーの文字の挿入
   $('#navButton').html '<img src="images/setting.png" alt="setting">'
-  $('.navbar h1').text t 'navbar.title'
+  $('.navbar h1').html t 'navbar.title'
   
   # メニュー項目の追加
   $('nav#pageNav ul').html "

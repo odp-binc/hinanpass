@@ -44,6 +44,7 @@
 // 避難方法ガイド部分の実装
 .guide-wrapper {
   margin: 10px 0;
+  padding-bottom: 15px;
   ul {
     list-style: none;
     li {
@@ -63,6 +64,7 @@
     padding: 5px;
     text-align: center;
     border-radius: 5px;
+    margin-bottom: 20px;
     &.link-earthquake {
       border: 1px solid $earthquake-button-color;
       color: $earthquake-button-color;

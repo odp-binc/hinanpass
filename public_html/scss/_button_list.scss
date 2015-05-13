@@ -16,13 +16,13 @@
   float: left;
   background-color: #cccccc;
   margin-top: 10px;
-  font-size: 15px;
+  font-size: 18px;
   line-height: 15px;
   padding: 1px 8px;
   img {
     max-width: 100%;
     display: block;
-    margin: 8px 0 8px;
+    margin: 8px auto 8px;
   }
   &:nth-child(3n){
     margin-left: 3.5%;
@@ -48,6 +48,7 @@
       border-left: 5px solid lighten($sample-button-color,5%);
       border-right: 5px solid darken($sample-button-color,5%);
       border-bottom: 5px solid darken($sample-button-color,5%);
+      
     }
   }
 
@@ -75,6 +76,7 @@
   }
   &.button-typhoon {
     @include button-detail($typhoon-button-color);
+    font-size: 15px;
   }
   &.button-others {
     @include button-detail($others-button-color);

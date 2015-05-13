@@ -11,7 +11,7 @@ x18n.register 'ja',
       sampleButton: 'ボタン'
       sentenceAfterButton: 'をタッチ'
     buttons: 
-      earthquakeButton: '地震'
+      earthquakeButton: '地震nn'
       floodButton: '洪水'
       hightideButton: '高潮'
       tsunamiButton: '津波'
@@ -22,7 +22,7 @@ x18n.register 'ja',
       othersButton: 'その他'
 
   guidance: 
-    goToNext: '次に進む',
+    goToNext: '地図を表示',
     linkToDetail: '詳しくはこちら',
     earthquake: '
     <ul>

@@ -15,6 +15,9 @@ window.pageChange = ->
         when 'license'
           license()
           break
+        when 'about'
+          aboutThisApp()
+          break
         else
           buttonList()
     else if hash.match(/[a-zA-Z]+/g).length == 2

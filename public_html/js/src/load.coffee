@@ -8,4 +8,6 @@ window.disasterName = ''
 window.onload = ->
   navbarReset()
   pageChange()
+  # ugly code: getCurrentPositionは現在地が変わらないと動いてくれないからとりあえず
+  window.currentPositionGotFlag = false;
 

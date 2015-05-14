@@ -1,9 +1,8 @@
 div.error {
   background-color: $error-bgcolor;
-  padding: 5%;
+  padding: 5% 5% 30px;
   margin: 5%;
   font-size: 14px;
-  min-height: 80%;
   border: $description-border;
   border-radius: 5px;
   p {
@@ -13,11 +12,14 @@ div.error {
     }
   }
   form {
+    height: 35px;
     input { 
       border: $description-border;
       border-radius: 5px;
-      min-height: 30px;
+      min-height: 100%;
+      font-size: 16px;
       width: 67%;
+      padding: 3.5px;
       box-sizing: border-box;
       display: block;
       float: left;
@@ -25,16 +27,20 @@ div.error {
     }
     div {
       border-radius: 5px;
-      min-height: 30px;
+      min-height: 100%;
+      padding: 4px 0 0;
       width: 30%;
       display: block;
       box-sizing: border-box;
       float: left;
-      line-height: 30px;
       text-align: center;
-      background-color: $title-bar-background-color;
-      color: $title-text-color;
+      background-color: $search-position-button-bgcolor;
+      color: $search-position-button-color;
       font-weight: bold;
+      img {
+        height: 23px;
+        width: 23px;
+      }
     }
   }
 }

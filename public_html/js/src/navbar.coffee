@@ -7,9 +7,20 @@ window.navbarReset = ->
   # メニューバーの文字の挿入
   $('#navButton').html '<img src="images/setting.png" alt="setting">'
   $('.navbar h1').html t 'navbar.title'
+  $('.navbar h1').on 'click', ->
+    location.hash = ''
   
   # メニュー項目の追加
   $('nav#pageNav ul').html "
-    <li><a href='#{window.location.origin}'>#{t 'navbar.nav.top'}</a></li>
-    <li><a href='#{window.location.origin}/\#license'>#{t 'navbar.nav.license'}</a></li>
+    <li id='aboutThisApp'>#{t 'navbar.nav.aboutThisApp'}</li>
   "
+
+  $('li#aboutThisApp').on 'click', ->
+    prev.push location.hash
+    location.hash = 'about'
+    $('#backButton').html '< ' + t('navbar.back')
+    $('#backButton').off 'click'
+    $('#backButton').on 'click' , ->
+      location.hash = prev.pop()
+
+

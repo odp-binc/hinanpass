@@ -67,14 +67,19 @@ window.facilitiesSet = (facilities) ->
       marker[i].height = facilities[i].sealevel - 0
       addDescription facilities[i] , marker[i].marker
 
-
-
   # 現在地の監視
   do currentPosition = ->
     if window.geolocationGetableFlag
-      window.currentMarker = null
+      if window.currentMarker
+        window.currentMarker.setMap(map)
+      else
+        window.currentMarker = null
       watch = navigator.geolocation.watchPosition (position) ->
-        window.currentMarker.setMap(null) if currentMarker
+        # getCurrentPositionの位置情報不変時対策
+        window.currentLatitude = position.coords.latitude
+        window.currentLongitude = position.coords.longitude
+
+        window.currentMarker.setMap(null) if window.currentMarker
         window.currentMarker = new google.maps.Marker
           position: new google.maps.LatLng position.coords.latitude, position.coords.longitude
           map: map
@@ -84,3 +89,4 @@ window.facilitiesSet = (facilities) ->
                 new google.maps.Point(0,0), 
                 new google.maps.Point(30,62), 
                 new google.maps.Size(62,77)
+

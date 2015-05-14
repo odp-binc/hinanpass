@@ -1,0 +1,23 @@
+div.about-wrapper {
+  h3 {
+    font-size: 18px;
+    text-align: center;
+    padding: 10px 0 0;
+  }
+  img {
+    width: 65%;
+    display: block;
+    margin: 30px auto;
+  }
+  ul {
+    list-style: none;
+    padding-left: 10px;
+    li {
+      border-bottom: $title-nav-li-border;
+      padding: 8px;
+      &:nth-child(1) {
+        border-top: $title-nav-li-border;
+      }
+    }
+  }
+}

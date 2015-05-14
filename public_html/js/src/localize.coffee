@@ -3,15 +3,15 @@ x18n.register 'ja',
     title: '<img src="images/logo.png" alt="ヒナンパス">'
     back: '戻る'
     nav:
-      top: 'トップへ戻る'
-      license: 'ライセンス情報'
+      aboutThisApp: 'このアプリについて'
+      howToUse: 'アプリの使い方'
   buttonList: 
     description: 
       sentenceBeforeButton: '対応する災害の'
       sampleButton: 'ボタン'
       sentenceAfterButton: 'をタッチ'
     buttons: 
-      earthquakeButton: '地震nn'
+      earthquakeButton: '地震'
       floodButton: '洪水'
       hightideButton: '高潮'
       tsunamiButton: '津波'
@@ -220,5 +220,24 @@ x18n.register 'ja',
           '(c) 2012 Florian H.'
           '(c) 2010 "Cowboy" Ben AlmanDual licensed under the MIT and GPL licenses.'
         ]
+  about:
+    title: 'このアプリについて'
+    list:
+      contents: [
+        '利用規約'
+        'プライバシーポリシー'
+        'ライセンス情報'
+      ]
+      idNames: [
+        'terms'
+        'privacy'
+        'license'
+      ]
+      hrefs:
+        terms: 'http://odp.jig.jp'
+        privacy: 'http://odp.jig.jp'
+      
+    imagePath: 'images/about-logo.png'
+
 
 

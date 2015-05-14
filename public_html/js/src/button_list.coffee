@@ -4,6 +4,7 @@ window.buttonList = ->
   partsReset = ->
     $('#contents').html '<div id="description" class="top-description"></div>'
     $('#contents').append '<div id="buttonWrapper"></div>'
+    $('#pageNav').slideUp 'fast'
     $('#backButton').html ''
     $('#backButton').off()
     $('#contents').removeClass 'map'
@@ -19,6 +20,7 @@ window.buttonList = ->
     $('#' + buttonIdName).on 'click' , ->
       prev.push ''
       $('#backButton').html '< ' + t('navbar.back')
+      # 基本的にはハッシュの値を参照してpage_change.coffeeみたいな感じでページ遷移を管理している
       $('#backButton').on 'click' , ->
         location.hash = prev.pop()
       location.hash = buttonClassName.match(/[a-z]+/g)[1]

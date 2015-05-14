@@ -1,7 +1,7 @@
-div#contents.map {
+div.contents.map {
   position: relative;
   z-index: -4;
-  div#map_canvas {
+  div.map-canvas {
     position: relative;
     z-index: -3;
   }

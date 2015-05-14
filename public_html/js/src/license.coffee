@@ -2,6 +2,7 @@
 window.license = ->
   # 大枠を作る
   do partsReset = ->
+    $('#contents').removeClass 'map'
     $('#contents').html '<div id="licenseList" class="license-list"></div>'
     $('#pageNav').slideUp 'fast'
 

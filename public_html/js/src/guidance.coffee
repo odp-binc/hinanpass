@@ -8,12 +8,17 @@ window.guidance = ->
     $('#contents').html '<div id="description" class="guidance-description"></div>'
     $('#contents').append '<div id="guideWrapper" class="guide-wrapper"></div>'
     $('#contents').removeClass 'map'
+    $('#pageNav').slideUp 'fast'
+    $('#backButton').html '< ' + t('navbar.back')
+    $('#backButton').off 'click'
+    $('#backButton').on 'click' , ->
+      location.hash = prev.pop()
   # div#desctiptionにボタンを追加
   descriptionCreate = ->
     disasterClassName = 'button-' + disasterName 
     $('#description').append '<div id="nextButton" class="button-next ' + disasterClassName + '">' + t('guidance.goToNext') + '</div>'
+
     $('#nextButton').on 'click' , ->
-      prev.push location.hash
       location.hash = disasterName + '-map'
 
   # 避難方法を表示する

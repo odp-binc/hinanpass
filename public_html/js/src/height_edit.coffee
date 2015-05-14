@@ -19,7 +19,7 @@ window.heightEdit = ->
   heightVisibility = (requestHeight = defaultHeight) ->
 
     for mark in marker
-      if mark.height >= requestHeight
+      if mark.information.sealevel >= requestHeight
         mark.marker.setVisible true
       else
         mark.marker.setVisible false

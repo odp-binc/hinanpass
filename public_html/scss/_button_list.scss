@@ -3,9 +3,15 @@
   font-weight: bold;
   color: $text-black-color;
   text-align: center;
-  padding: 10px 0;
+  padding: 20px 0 15px;
   border-bottom: $description-border;
   font-size: 20px;
+}
+
+.button-wrapper {
+  padding-bottom: 30px;
+  // ugly code (ボタンリストの下marginが効かずつらい)
+  min-height: 400px;
 }
 
 // 各ボタンへのスタイル適用
@@ -21,13 +27,14 @@
   padding: 1px 8px;
   img {
     max-width: 100%;
+    max-height: 39px;
     display: block;
     margin: 6px auto 8px;
   }
-  &:nth-child(3n){
+  &:nth-child(3n+1){
     margin-left: 3.5%;
   }
-  &:nth-child(3n+1){
+  &:nth-child(3n+2){
     margin-right: 3.5%;
   }
 
@@ -53,6 +60,14 @@
   }
 
   // 各種災害のボタン
+  &.button-all {
+    @include button-detail($all-button-color);
+    margin-left: 0;
+    width: 100%;
+    img {
+      display: inline-block;
+    }
+  }
   &.button-earthquake {
     @include button-detail($earthquake-button-color);
   }
@@ -78,7 +93,8 @@
     @include button-detail($typhoon-button-color);
     font-size: 15px;
   }
-  &.button-others {
-    @include button-detail($others-button-color);
+  &.button-landslide {
+    @include button-detail($landslide-button-color);
+    font-size: 15px;
   }
 }

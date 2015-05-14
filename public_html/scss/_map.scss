@@ -10,22 +10,6 @@ div.contents.map {
 div.gm-style-iw {
   h4 {
     font-size: 18px;
-    margin-bottom: 5px;
-  }
-  .category {
-    display: inline-block;
-    padding: 2px 5px 0;
-    border-radius: 3px;
-    background-color: $information-category-bgcolor;
-    color: $information-category-color;
-    margin-bottom: 3px;
-  }
-  .note , .height {
-    font-size: 10px;
-  }
-  .landslide {
-    display: inline-block;
-    margin-bottom: 5px;
   }
   .sealevel {
     display: inline-block;
@@ -36,7 +20,15 @@ div.gm-style-iw {
     color: $navigate-button-text-color;
     background-color: $navigate-button-bgcolor;
     padding: 5px;
-    margin-top: 5px;
+    margin-top: 15px;
+    border-radius: 3px;
+  }
+  .check-button {
+    text-align: center;
+    color: $check-button-text-color;
+    background-color: $check-button-bgcolor;
+    padding: 5px;
+    margin: 5px 0 10px;
     border-radius: 3px;
   }
 }

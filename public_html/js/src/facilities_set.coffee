@@ -1,58 +1,48 @@
 # 避難所のマーカをセットする
 window.facilitiesSet = (facilities) ->
+  window.currentInfoWindow = null
 
   disasterName = location.hash.match(/[a-zA-Z]+/)[0]
   window.directionsDisplay = new google.maps.DirectionsRenderer()
   directionsDisplay.setOptions(
     suppressMarkers: true
-    draggable: true
+    draggable: false
   )
   window.marker = new Array()
 
   # ピンタップ時の説明の吹き出しを作る
-  addDescription = (facility , marker) ->
+  addDescription = (facility , marker , markerNum) ->
     content = new String()
 
     if facility.name
       content += "<h4>#{facility.name}</h4>"
-    if facility.category
-      content += "<span class='category'>#{facility.category}</span><br>"
-    if facility.address
-      content += "<span class='address'>#{facility.address}</span><br>"
-    if facility.target
-      targetString = t('information.target') + facility.target
-      noteString = ''
-      noteString = '( ' + facility.note + ' )' if facility.note
-      content += "<span class='target'>#{targetString} <span class='note'>#{noteString}</span></span><br>"
-    if facility.capacity
-      capacityString = t('information.capacity') + facility.capacity
-      content += "<span class='capacity'>#{capacityString}</span> "
-    if facility.landslide
-      landSlideString = t('information.landslide.' + facility.landslide)
-      content += "/ <span class='landslide'>#{landSlideString}</span><br>"
-    if facility.description
-      content += "#{facility.description}<br>"
     if facility.sealevel
       seaLevelString = t('information.sealevel') + facility.sealevel
       heightString = ''
       heightString = '( ' + t('information.height') + facility.height + 'm )' if facility.height
-      content += "<span class='sealevel'>#{seaLevelString}m <span class='height'>#{heightString}</span></span><br>"
+      content += "<span class='sealevel'>#{seaLevelString}m <span class='height'
+                  >#{heightString}</span></span><br>"
     if facility.telephone
       content += "<span class='telephone'>TEL : #{facility.telephone}</span>"
-    content += "<div class='navigate-button #{disasterName}' onClick='navigate(#{facility.lat},#{facility.long});'>" + t('information.here') + "</div>"
+    content += "<div class='navigate-button #{disasterName}' 
+                onclick='navigate(#{facility.lat},#{facility.long});'>" + 
+                t('information.here') + "</div>" +
+                "<div class='check-button #{disasterName}' 
+                onclick='checkFacilityInformation(marker[#{markerNum}].information)'>" + 
+                t('information.check') + "</div>"
 
     google.maps.event.addListener marker, 'click', (event) ->
-      new google.maps.InfoWindow(
+      # InfoWindowを閉じるのと常にひとつだけ表示するためのもの
+      window.currentInfoWindow.close() if currentInfoWindow
+      window.currentInfoWindow = new google.maps.InfoWindow(
         content: content
         pixelOffset: new google.maps.Size -23,30
-      ).open marker.getMap(), marker
+      )
+      window.currentInfoWindow.open marker.getMap(), marker
 
   # ピンを立てる
   do setPins = ->
     data = new Array()
-    switch disasterName
-      when 'flood','hightide','tsunami','inundation','typhoon'
-        heightEdit()
     for i in [0...facilities.length]
       marker[i] = new Object()
       marker[i].marker = new google.maps.Marker
@@ -64,8 +54,12 @@ window.facilitiesSet = (facilities) ->
               new google.maps.Point(23,53),
               new google.maps.Size(45,60)
         zIndex: 1
-      marker[i].height = facilities[i].sealevel - 0
-      addDescription facilities[i] , marker[i].marker
+      # PENDING : 詳細表示のために変数に避難所詳細情報を入れた
+      marker[i].information = facilities[i]
+      addDescription facilities[i] , marker[i].marker, i
+    switch disasterName
+      when 'flood','hightide','tsunami','inundation','typhoon'
+        heightEdit()
 
   # 現在地の監視
   do currentPosition = ->

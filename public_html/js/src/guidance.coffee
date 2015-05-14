@@ -16,7 +16,9 @@ window.guidance = ->
   # div#desctiptionにボタンを追加
   descriptionCreate = ->
     disasterClassName = 'button-' + disasterName 
-    $('#description').append '<div id="nextButton" class="button-next ' + disasterClassName + '">' + t('guidance.goToNext') + '</div>'
+    $('#description').append '<div id="nextButton" class="button-next ' +
+                              disasterClassName + '">' + t('guidance.goToNext') + 
+                              '</div>'
 
     $('#nextButton').on 'click' , ->
       location.hash = disasterName + '-map'
@@ -24,7 +26,6 @@ window.guidance = ->
   # 避難方法を表示する
   guideInsert = ->
     $('#guideWrapper').append t 'guidance.' + disasterName
-    $('#guideWrapper').append '<a href="' + t('guidance.' + disasterName + 'Link') + '" class="link-to-detail link-' + disasterName + '" target="_blank">' + t('guidance.linkToDetail') + '</a>'
 
   # 関数が呼び出された時に実行するメソッド
   partsReset()

@@ -1,15 +1,18 @@
 # ページ遷移
 window.pageChange = ->
   hash = location.hash
+
+  window.scrollTo 0, 0
+  
   if !hash
     buttonList()
   else
     if hash.match(/[a-zA-Z]+/g).length == 1
       switch hash.match(/[a-zA-Z]+/)[0]
-        when 'earthquake','flood','hightide','tsunami','inundation','eruption','fire','typhoon'
+        when 'earthquake','flood','hightide','tsunami','inundation','eruption','fire','typhoon','landslide'
           guidance()
           break
-        when 'others'
+        when 'all'
           makeMapView()
           break
         when 'license'
@@ -22,7 +25,7 @@ window.pageChange = ->
           buttonList()
     else if hash.match(/[a-zA-Z]+/g).length == 2
       switch hash.match(/[a-zA-Z]+/)[0]
-        when 'earthquake','flood','hightide','tsunami','inundation','eruption','fire','typhoon','others'
+        when 'earthquake','flood','hightide','tsunami','inundation','eruption','fire','typhoon','landslide'
           makeMapView()
           break
         else

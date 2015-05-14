@@ -8,7 +8,7 @@
     text-align: center;
     font-size: $next-button-font-size;
     padding: 5px 0;
-    margin: 15px 0;
+    margin: 25px 0 20px;
 
     // 各ボタンの色
     &.button-earthquake {
@@ -35,8 +35,8 @@
     &.button-typhoon {
       @include button-detail($typhoon-button-color);
     }
-    &.button-others {
-      @include button-detail($others-button-color);
+    &.button-landslide {
+      @include button-detail($landslide-button-color);
     }
   }
 }
@@ -97,9 +97,9 @@
       border: 1px solid $typhoon-button-color;
       color: $typhoon-button-color;
     }
-    &.link-others {
-      border: 1px solid $others-button-color;
-      color: $others-button-color;
+    &.link-landslide {
+      border: 1px solid $landslide-button-color;
+      color: $landslide-button-color;
     }
   }
 

@@ -1,9 +1,12 @@
 # エリアコードから避難所情報を取得
 window.sendFacilitiesRequest = (currentLat,currentLong) ->
   url = t 'sparql.url.facilities'
-  queryParts = t 'sparql.query.baseFacilities'
+  if location.hash.match(/[a-zA-Z]+/)[0] == 'all'
+    queryParts = t 'sparql.query.allFacilities'
+  else
+    queryParts = t 'sparql.query.baseFacilities'
   disasterName = location.hash.match(/[a-zA-Z]+/)[0]
-  console.log currentLat , currentLong
+
 
   distanceThreshold = 10 #[km]
 
@@ -68,11 +71,25 @@ window.sendFacilitiesRequest = (currentLat,currentLong) ->
       if datum.landslide
         parsedDatum.landslide = datum.landslide.value
       if datum.sealevel
-        parsedDatum.sealevel = datum.sealevel.value
+        parsedDatum.sealevel = datum.sealevel.value - 0
       if datum.height
         parsedDatum.height = datum.height.value
       if datum.telephone
         parsedDatum.telephone = datum.telephone.value
+      if datum.fire
+        parsedDatum.fire = datum.fire.value
+      if datum.earthquake
+        parsedDatum.earthquake = datum.earthquake.value
+      if datum.flood
+        parsedDatum.flood = datum.flood.value
+      if datum.hightide
+        parsedDatum.hightide = datum.hightide.value
+      if datum.tsunami
+        parsedDatum.tsunami = datum.tsunami.value
+      if datum.inundation
+        parsedDatum.inundation = datum.inundation.value
+      if datum.eruption
+        parsedDatum.eruption = datum.eruption.value
       parsedData.push parsedDatum
 
     return parsedData

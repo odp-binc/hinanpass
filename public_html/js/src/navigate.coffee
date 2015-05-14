@@ -1,6 +1,9 @@
 # ルート案内表示
 window.navigate = (target_lat,target_long) ->
 
+  # ナビを開始したら吹き出しを消す
+  window.currentInfoWindow.close() if currentInfoWindow
+
   do tryNavigate = ->
     if window.currentMarker.position.A
       current_lat = currentMarker.position.A
@@ -9,12 +12,14 @@ window.navigate = (target_lat,target_long) ->
       target_lat = target_lat - 0
       target_long = target_long - 0
 
+      # 過去のルート案内を消す
+      # この変数の初期化はfacility.setで行っている(多分ugly code)
       directionsDisplay.setMap null
 
       request = 
         origin: new google.maps.LatLng current_lat, current_long
         destination: new google.maps.LatLng target_lat, target_long
-        travelMode: google.maps.TravelMode.WALKING 
+        travelMode: google.maps.TravelMode.WALKING
 
       directionsService = new google.maps.DirectionsService()
       directionsDisplay.setMap map

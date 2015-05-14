@@ -10,7 +10,7 @@ window.makeMapView = ->
     $('#backButton').html '< ' + t('navbar.back')
     $('#backButton').off 'click'
     $('#backButton').on 'click' , ->
-      location.hash = '' if location.hash.match(/[a-zA-Z]+/)[0] == 'others'
+      location.hash = '' if location.hash.match(/[a-zA-Z]+/)[0] == 'all'
       location.hash = location.hash.match(/[a-zA-Z]+/)[0]
   
   # 地図を作る・初期化

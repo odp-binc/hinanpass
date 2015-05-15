@@ -42,50 +42,50 @@ x18n.register 'ja',
     <li><strong>暖房器具</strong>を消す</li>
     <li><strong>ブレーカー</strong>を切る</li>
     <li>下敷きになったら大声で<strong>助けを呼ぶ</strong></li>
-    <li>火災が起きたら<strong>消火器</strong>で初期消火を</li>
-    <li>消化も下敷きも<strong>みんなで</strong>協力して救助</li>
+    <li>火災が起きたら<strong>消火器</strong>で初期消火</li>
+    <li>消火も下敷きも<strong>みんなで</strong>協力して救助</li>
     </ul>',
     flood: '
     <ul>
-    <li>水深がひざ丈まである場合は<strong>無理に避難せず</strong>建物内の高所へ</li>
+    <li>水深がひざ丈まである場合は<strong>無理に避難せず</strong>高所へ移動</li>
     <li>山などの<strong>斜面で異変</strong>があればすみやかに離れる</li>
     <li><strong>頭を守るもの</strong>をつける</li>
     <li>長靴ではなく<strong>いつもの靴</strong>を使う</li>
     <li><strong>複数人</strong>で避難する</li>
-    <li>できるだけ<strong>明るい時間</strong>に避難を</li>
+    <li>できるだけ<strong>明るい時間</strong>に避難</li>
     <li><strong>頑丈な建物</strong>に避難するのも手段</li>
     </ul>',
     hightide: '
     <ul>
-    <li>避難は<strong>徒歩</strong>でする</li>
+    <li><strong>徒歩</strong>で避難する</li>
     <li><strong>河川</strong>の周辺は避ける</li>
     <li><strong>木造の建物</strong>は避ける</li>
-    <li><strong>鉄筋コンクリート造</strong>の建物の高所へ</li>
+    <li><strong>鉄筋コンクリート造</strong>の建物の高所へ移動</li>
     </ul>',
     tsunami: '
     <ul>
-    <li>避難は<strong>徒歩</strong>でする</li>
+    <li><strong>徒歩</strong>で避難する</li>
     <li><strong>河川</strong>の周辺は避ける</li>
     <li><strong>木造の建物</strong>は避ける</li>
-    <li><strong>鉄筋コンクリート造</strong>の建物の高所へ</li>
+    <li><strong>鉄筋コンクリート造</strong>の建物内の高所へ移動</li>
     </ul>',
     inundation: '
     <ul>
-    <li>水深がひざ丈まである場合は<strong>無理に避難せず</strong>建物内の高所へ</li>
+    <li>水深がひざ丈まである場合は<strong>無理に避難せず</strong>建物内の高所へ移動</li>
     <li>山などの<strong>斜面で異変</strong>があればすみやかに離れる</li>
     <li><strong>頭を守るもの</strong>をつける</li>
     <li>長靴ではなく<strong>いつもの靴</strong>を使う</li>
     <li><strong>複数人</strong>で避難する</li>
-    <li>できるだけ<strong>明るい時間</strong>に避難を</li>
+    <li>できるだけ<strong>明るい時間</strong>に避難</li>
     <li><strong>頑丈な建物</strong>に避難するのも手段</li>
     </ul>',
     eruption: '
     <ul>
-    <li><strong>ヘルメット</strong>や<strong>マスク</strong>の着用</li>
+    <li><strong>ヘルメット</strong>や<strong>マスク</strong>を着用</li>
     <li><strong>噴煙は谷沿いを流れる</strong>ため避ける</li>
     <li><strong>火山性ガスは窪地</strong>にたまりやすいため避ける</li>
-    <li>間に合わなければ<strong>一番近い建物</strong>へ</li>
-    <li>建物がなければ<strong>物陰</strong>へ</li>
+    <li>間に合わなければ<strong>一番近い建物</strong>へ移動</li>
+    <li>建物がなければ<strong>物陰</strong>へ移動</li>
     <li>視界が悪い時は<strong>大きく動かず</strong>その場で頭部を守る</li>
     </ul>',
     fire: '
@@ -93,15 +93,15 @@ x18n.register 'ja',
     <li>タオルやハンカチで<strong>口を覆う</strong></li>
     <li>できるだけ<strong>姿勢を低く</strong></li>
     <li>燃えている部屋の<strong>ドアは閉める</strong></li>
-    <li>鼻から吸って口から吐く</li>
+    <li>呼吸は鼻から吸って口から吐く</li>
     <li><strong>下の階へ</strong>避難する</li>
     <li>エレベーターは<strong>利用しない</strong></li>
     </ul>',
     typhoon: '
     <ul>
-    <li>竜巻の場合は<strong>窓際は避け</strong>、できるだけ<strong>窓のない部屋</strong>へ</li>
+    <li>竜巻の場合は<strong>窓際は避け</strong>、できるだけ<strong>窓のない部屋</strong>へ移動</li>
     <li>屋外では<strong>物陰やくぼみ</strong>に隠れ、<strong>身を小さく</strong>する</li>
-    <li>戸建ての場合はなるべく<strong>1階</strong>へ</li>
+    <li>一戸建ての場合はなるべく<strong>1階</strong>へ</li>
     <li>台風の場合は<strong>外へ出ない</strong></li>
     <li>台風は<strong>より高い場所</strong>へ避難する</li>
     <li>流れている<strong>水</strong>に近づかない</li>
@@ -110,7 +110,7 @@ x18n.register 'ja',
     </ul>',
     landslide: '
     <ul>
-    <li><strong>警戒情報</strong>が出たらいち早く避難</li>
+    <li><strong>警戒情報</strong>が出たらすみやかに避難</li>
     <li>避難が困難な時は<strong>近くの頑丈な建物</strong>の<strong>2階以上</strong>へ</li>
     <li><strong>ひび割れ</strong>が発生してる、斜面などから<strong
     >水が吹き出す</strong>、<strong>山鳴り</strong
@@ -264,11 +264,22 @@ x18n.register 'ja',
           '自治体コード'
         ]
         descriptions: [
-          'powered by <a href="http://odp.jig.jp/" about="_blank">オープンデータプラットフォーム</a>'
-          '<a href="http://statdb.nstac.go.jp/" about="_blank">次世代統計利用システム</a>
+          'powered by <a href="http://odp.jig.jp/" target="_blank">オープンデータプラットフォーム</a>'
+          '<a href="http://statdb.nstac.go.jp/" target="_blank">次世代統計利用システム</a>
           <small>このサービスは、次世代統計利用システムのAPI機能を使用していますが、' +
           'サービスの内容は総務省統計局又は独立行政法人統計センターによって' +
           '保証されたものではありません。</small>'
+        ]
+    api:
+      title: 'API'
+      text: 'このアプリは以下のAPIを利用しています'
+      def:
+        titles: [
+          '<a href="https://developers.google.com/maps/" target="_blank"
+           >Google Maps JavaScript API v3</a>'
+        ]
+        descriptions: [
+          '(c) Google Inc. '
         ]
     library:
       title: 'ライブラリ'
@@ -277,8 +288,8 @@ x18n.register 'ja',
         titles: [
           'jQuery v1.10.2'
           'jquery.jsonp 2.4.0'
-          '<a href="https://github.com/js-coder/x18n" about="_blank">x18n</a>'
-          '<a href="http://benalman.com/about/license/" about="_blank">jQuery hashchange event v1.3</a>'
+          '<a href="https://github.com/js-coder/x18n" target="_blank">x18n</a>'
+          '<a href="http://benalman.com/about/license/" target="_blank">jQuery hashchange event v1.3</a>'
         ]
         descriptions: [
           '(c) 2005, 2013 jQuery Foundation, Inc.'

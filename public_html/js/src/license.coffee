@@ -22,4 +22,5 @@ window.license = ->
   do licenseInsert = ->
     wrapper = $('#licenseList')
     licenseListMake wrapper, 'data'
+    licenseListMake wrapper, 'api'
     licenseListMake wrapper, 'library'

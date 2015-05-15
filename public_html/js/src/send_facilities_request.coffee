@@ -44,7 +44,7 @@ window.sendFacilitiesRequest = (currentLat,currentLong) ->
 
   do callFacilitySet = ->
     if endRequestNumber >= 1
-      facilitiesSet results
+      markerSet results
     else
       setTimeout callFacilitySet , 50
 

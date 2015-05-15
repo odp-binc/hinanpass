@@ -57,3 +57,19 @@ div.height-edit {
     }
   }
 }
+
+div.current-back {
+  position: fixed;
+  min-width: 76px;
+  min-height: 30px;
+  right: 6px;
+  bottom: 33px;
+  background-color: $current-back-bgcolor;
+  border: $current-back-border;
+  border-radius: 3px;
+  color: $current-back-color;
+  box-shadow: 0px 1px 2px rgba(0,0,0,0.3);
+  line-height: 30px;
+  box-sizing: border-box;
+  text-align: center;
+}

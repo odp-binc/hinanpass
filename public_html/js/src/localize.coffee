@@ -305,5 +305,9 @@ x18n.register 'ja',
       
     imagePath: 'images/about-logo.png'
 
+  currentBack:
+    button: '現在地'
+    ungetableGeoAlert: '現在地が取得できなかったため前回設定した現在地に戻ります'
+
 
 

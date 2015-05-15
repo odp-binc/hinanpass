@@ -1,5 +1,5 @@
-# 避難所のマーカをセットする
-window.facilitiesSet = (facilities) ->
+# 避難所・現在地のマーカをセットする
+window.markerSet = (facilities) ->
   window.currentInfoWindow = null
 
   disasterName = location.hash.match(/[a-zA-Z]+/)[0]
@@ -9,6 +9,14 @@ window.facilitiesSet = (facilities) ->
     draggable: false
   )
   window.marker = new Array()
+
+  # ここにこの処理を書くのは不適切な気がする(現在地へ戻るボタン)
+  $('#contents').append "
+    <div id='currentBack' class='current-back'>#{t 'currentBack.button'}</div>"
+  $('#currentBack').on 'click' , ->
+    if window.map && window.currentMarker
+      alert t('currentBack.ungetableGeoAlert') if !geolocationGetableFlag
+      window.map.setCenter new google.maps.LatLng currentLatitude, currentLongitude
 
   # ピンタップ時の説明の吹き出しを作る
   addDescription = (facility , marker , markerNum) ->

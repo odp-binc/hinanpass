@@ -1,5 +1,5 @@
 x18n.register 'ja',
-  disaster: 
+  disaster:
     earthquake: '地震'
     flood: '洪水'
     hightide: '高潮'
@@ -9,18 +9,19 @@ x18n.register 'ja',
     fire: '火事'
     typhoon: '風水被害'
     landslide: '土砂災害'
-  navbar: 
+    all: '近くの避難所をすべて表示'
+  navbar:
     title: '<img src="images/logo.png" alt="ヒナンパス">'
     back: '戻る'
     nav:
       aboutThisApp: 'このアプリについて'
       howToUse: 'アプリの使い方'
-  buttonList: 
-    description: 
+  buttonList:
+    description:
       sentenceBeforeButton: '対応する災害の'
       sampleButton: 'ボタン'
       sentenceAfterButton: 'をタッチ'
-    buttons: 
+    buttons:
       earthquakeButton: '地震'
       floodButton: '洪水'
       hightideButton: '高潮'
@@ -30,9 +31,9 @@ x18n.register 'ja',
       fireButton: '火事'
       typhoonButton: '風水被害'
       landslideButton: '土砂災害'
-      allButton: 'すべての避難所を表示'
+      allButton: '近くの避難所をすべて表示'
 
-  guidance: 
+  guidance:
     goToNext: '地図を表示',
     linkToDetail: '詳しくはこちら',
     earthquake: '
@@ -127,21 +128,21 @@ x18n.register 'ja',
         prefix odp:<http://odp.jig.jp/odp/1.0#>
         prefix sac:<http://statdb.nstac.go.jp/lod/sac/C>
         prefix schema:<http://schema.org/>
-        prefix xsd: <http://www.w3.org/2001/XMLSchema#> 
+        prefix xsd: <http://www.w3.org/2001/XMLSchema#>
         prefix jrrk:<http://purl.org/jrrk#>
         prefix geo:<http://www.w3.org/2003/01/geo/wgs84_pos#>
         prefix imi:<http://imi.ipa.go.jp/ns/core/rdf#>
-        select distinct ?lat ?long 
-          ?address ?category ?name 
-          ?description ?capacity ?target 
+        select distinct ?lat ?long
+          ?address ?category ?name
+          ?description ?capacity ?target
           ?note ?landslide ?sealevel ?height ?telephone {
           ?s rdf:type jrrk:EmergencyFacility;
           geo:lat ?lat;
-          geo:long ?long.'  
+          geo:long ?long.'
           'optional {
             ?s imi:住所 ?addressNode.
             ?addressNode imi:表記 ?address.
-          } 
+          }
           optional { ?s imi:種別 ?category. }
           optional { ?s imi:説明 ?description. }
           optional { ?s odp:capacity ?capacity. }
@@ -163,7 +164,7 @@ x18n.register 'ja',
             ' && xsd:float(?long) > '
             ' && xsd:float(?long) < '
           ' )
-        } LIMIT 10000' 
+        } LIMIT 10000'
       ]
       allFacilities: [
         'prefix rdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#>
@@ -171,23 +172,23 @@ x18n.register 'ja',
         prefix odp:<http://odp.jig.jp/odp/1.0#>
         prefix sac:<http://statdb.nstac.go.jp/lod/sac/C>
         prefix schema:<http://schema.org/>
-        prefix xsd: <http://www.w3.org/2001/XMLSchema#> 
+        prefix xsd: <http://www.w3.org/2001/XMLSchema#>
         prefix jrrk:<http://purl.org/jrrk#>
         prefix geo:<http://www.w3.org/2003/01/geo/wgs84_pos#>
         prefix imi:<http://imi.ipa.go.jp/ns/core/rdf#>
-        select distinct ?lat ?long 
-          ?address ?category ?name 
-          ?description ?capacity ?target 
-          ?note ?landslide ?sealevel ?height ?telephone 
-          ?earthquake ?flood ?hightide ?tsunami ?inundation 
+        select distinct ?lat ?long
+          ?address ?category ?name
+          ?description ?capacity ?target
+          ?note ?landslide ?sealevel ?height ?telephone
+          ?earthquake ?flood ?hightide ?tsunami ?inundation
           ?eruption ?fire ?landslide {
           ?s rdf:type jrrk:EmergencyFacility;
           geo:lat ?lat;
-          geo:long ?long.'  
+          geo:long ?long.'
           'optional {
             ?s imi:住所 ?addressNode.
             ?addressNode imi:表記 ?address.
-          } 
+          }
           optional { ?s imi:種別 ?category. }
           optional { ?s imi:説明 ?description. }
           optional { ?s odp:capacity ?capacity. }
@@ -217,7 +218,7 @@ x18n.register 'ja',
             ' && xsd:float(?long) > '
             ' && xsd:float(?long) < '
           ' )
-        } LIMIT 10000' 
+        } LIMIT 10000'
       ]
       kind:
         earthquake: '?s odp:supportEarthquake true.'
@@ -244,7 +245,7 @@ x18n.register 'ja',
 
   heightDescription: '避難高度'
 
-  error: 
+  error:
     geolocation: '<p>現在地の取得が行えませんでした。<br>
       端末の設定から位置情報の使用を許可してください。</p>
       <p>また、以下のフォームに地名や近くの建物の名前を入力して現在地を設定することもできます。</p>'
@@ -311,14 +312,11 @@ x18n.register 'ja',
         'license'
       ]
       hrefs:
-        terms: 'http://odp.jig.jp'
-        privacy: 'http://odp.jig.jp'
-      
+        terms: 'http://rd.jig.jp/term_hinanpass_jp.html'
+        privacy: 'http://jig.jp/privacy/'
+
     imagePath: 'images/about-logo.png'
 
   currentBack:
     button: '現在地'
     ungetableGeoAlert: '現在地が取得できなかったため前回設定した現在地に戻ります'
-
-
-

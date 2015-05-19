@@ -10,4 +10,6 @@ window.onload = ->
   pageChange()
   # ugly code: getCurrentPositionは現在地が変わらないと動いてくれないからとりあえず
   window.currentPositionGotFlag = false;
-
+  # FIXME: 現在地非取得時のsubmit失敗対策
+  reg = new RegExp(/\?/)
+  window.location.search = '' if !reg.test window.location.href

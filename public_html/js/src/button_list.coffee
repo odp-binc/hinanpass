@@ -18,6 +18,10 @@ window.buttonList = ->
                             '.png"><p>'+ t('buttonList.buttons.' + buttonIdName) + 
                             '</p></div>'
     $('#' + buttonIdName).on 'click' , ->
+      # Google Analyticsにて度の災害ボタンがよく押されているかわかるようにするためのコード
+      ga('send', 'event', '災害ボタンタップ',
+         t('disaster.' + buttonClassName.match(/[a-z]+/g)[1]))
+
       prev.push ''
       $('#backButton').html '< ' + t('navbar.back')
       # 基本的にはハッシュの値を参照してpage_change.coffeeみたいな感じでページ遷移を管理している

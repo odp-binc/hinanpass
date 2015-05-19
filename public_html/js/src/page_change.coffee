@@ -30,6 +30,8 @@ window.pageChange = ->
           break
         else
           buttonList()
+    else
+      buttonList()
 
 
 $(window).hashchange ->

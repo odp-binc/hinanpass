@@ -12,7 +12,7 @@ window.makeMapView = ->
     $('#backButton').on 'click' , ->
       location.hash = '' if location.hash.match(/[a-zA-Z]+/)[0] == 'all'
       location.hash = location.hash.match(/[a-zA-Z]+/)[0]
-  
+
   # 地図を作る・初期化
   do mapMake = ->
     if !(window.currentPositionGotFlag)
@@ -22,13 +22,13 @@ window.makeMapView = ->
           window.currentLongitude = position.coords.longitude
 
           latitude = window.currentLatitude
-          longitude = window.currentLongitude 
+          longitude = window.currentLongitude
 
-          mapOptions = 
-            center: new google.maps.LatLng(latitude, longitude)
+          mapOptions =
+            center: new google.maps.LatLng latitude, longitude
             zoom: 16
             mapTypeId: google.maps.MapTypeId.ROADMAP
-          window.map = new google.maps.Map(document.getElementById("mapCanvas"),mapOptions)
+          window.map = new google.maps.Map document.getElementById("mapCanvas"),mapOptions
 
           sendFacilitiesRequest latitude, longitude
 
@@ -39,7 +39,7 @@ window.makeMapView = ->
     else
       latitude = window.currentLatitude
       longitude = window.currentLongitude
-      mapOptions = 
+      mapOptions =
         center: new google.maps.LatLng(latitude, longitude),
         zoom: 16,
         mapTypeId: google.maps.MapTypeId.ROADMAP

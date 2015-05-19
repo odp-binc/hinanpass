@@ -14,6 +14,8 @@ window.markerSet = (facilities) ->
   $('#contents').append "
     <div id='currentBack' class='current-back'>#{t 'currentBack.button'}</div>"
   $('#currentBack').on 'click' , ->
+    # 現在地ボタンを押したら吹き出しを消す
+    window.currentInfoWindow.close() if currentInfoWindow
     if window.map && window.currentMarker
       alert t('currentBack.ungetableGeoAlert') if !geolocationGetableFlag
       window.map.setCenter new google.maps.LatLng currentLatitude, currentLongitude
@@ -32,14 +34,16 @@ window.markerSet = (facilities) ->
                   >#{heightString}</span></span><br>"
     if facility.telephone
       content += "<span class='telephone'>TEL : #{facility.telephone}</span>"
-    content += "<div class='navigate-button #{disasterName}' 
-                onclick='navigate(#{facility.lat},#{facility.long});'>" + 
+    content += "<div class='navigate-button #{disasterName}'
+                onclick='navigate(#{facility.lat},#{facility.long});'>" +
                 t('information.here') + "</div>" +
-                "<div class='check-button #{disasterName}' 
-                onclick='checkFacilityInformation(marker[#{markerNum}].information)'>" + 
+                "<div class='check-button #{disasterName}'
+                onclick='checkFacilityInformation(marker[#{markerNum}].information)'>" +
                 t('information.check') + "</div>"
 
     google.maps.event.addListener marker, 'click', (event) ->
+      # 高さ調節の箱をしまう
+      $('#heightEdit').addClass 'closed'
       # InfoWindowを閉じるのと常にひとつだけ表示するためのもの
       window.currentInfoWindow.close() if currentInfoWindow
       window.currentInfoWindow = new google.maps.InfoWindow(
@@ -56,9 +60,9 @@ window.markerSet = (facilities) ->
       marker[i].marker = new google.maps.Marker
         position: new google.maps.LatLng facilities[i].lat - 0 , facilities[i].long - 0
         map: map
-        icon: new google.maps.MarkerImage 'images/facilityMarker.png', 
+        icon: new google.maps.MarkerImage 'images/facilityMarker.png',
               new google.maps.Size(90,120),
-              new google.maps.Point(0,0), 
+              new google.maps.Point(0,0),
               new google.maps.Point(23,53),
               new google.maps.Size(45,60)
         zIndex: 1
@@ -86,9 +90,8 @@ window.markerSet = (facilities) ->
           position: new google.maps.LatLng position.coords.latitude, position.coords.longitude
           map: map
           zIndex: 2
-          icon: new google.maps.MarkerImage 'images/currentMarker.png', 
-                new google.maps.Size(123,154), 
-                new google.maps.Point(0,0), 
-                new google.maps.Point(30,62), 
+          icon: new google.maps.MarkerImage 'images/currentMarker.png',
+                new google.maps.Size(123,154),
+                new google.maps.Point(0,0),
+                new google.maps.Point(30,62),
                 new google.maps.Size(62,77)
-

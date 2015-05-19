@@ -44,7 +44,6 @@
 // 避難方法ガイド部分の実装
 .guide-wrapper {
   margin: 10px 0;
-  padding-bottom: 15px;
   ul {
     list-style: none;
     li {
@@ -52,9 +51,9 @@
       border-left: $guide-list-border;
       padding-left: 10px;
       margin: 15px 0;
-      font-size: 22px;
+      font-size: 18px;
       strong {
-        font-size: 26px;
+        font-size: 22px;
         color: $guide-strong-color;
       }
     }

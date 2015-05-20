@@ -56,6 +56,7 @@ window.mapMakeWithoutGeo = ->
         $('#locationNameInput').blur()
         alert t 'error.zeroResults'
       else
+        # TODO: いろんなエラーに対応する
         $('#locationNameInput').blur()
         alert t 'error.unknown'
 
@@ -76,4 +77,4 @@ window.mapMakeWithoutGeo = ->
                                           cell.types.indexOf('sublocality_level_1') >= 0 ||
                                           cell.types.indexOf('administrative_area_level_1') >= 0 ||
                                           cell.types.indexOf('establishment') >= 0
-    result
+    return result

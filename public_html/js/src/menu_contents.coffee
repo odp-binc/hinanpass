@@ -9,6 +9,7 @@ window.menuContents = (contents_name) ->
     $('#contents').removeClass 'map'
     $('#contents').html '<div id="menuContentsWrapper" class="menu-contents-wrapper"></div>'
 
+  # 内容の挿入
   do Insert = ->
     wrapper = $ '#menuContentsWrapper'
     switch contents_name

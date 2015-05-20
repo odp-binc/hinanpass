@@ -6,6 +6,8 @@ window.checkFacilityInformation = (facility) ->
 
   box = $ '#informationBox'
 
+  # FIXME: 読みづらい。避難所詳細情報のhtmlを吐いてくれる処理
+
   box.append "<h3>#{facility.name}</h3>"
   box.append "<span class='category'>#{facility.category}</span>" if facility.category
   box.append "<div class='address'>#{facility.address}</div>" if facility.address
@@ -57,4 +59,3 @@ window.checkFacilityInformation = (facility) ->
     removeWrapper = ->
       $('#informationWrapper').remove()
     setTimeout removeWrapper, 350
-

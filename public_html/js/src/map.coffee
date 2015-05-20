@@ -15,6 +15,7 @@ window.makeMapView = ->
   # 地図を作る・初期化
   do mapMake = ->
     if !(window.currentPositionGotFlag)
+      # インデント気持ち悪いかもしれないけどこれは一応正常なコード
       navigator.geolocation.getCurrentPosition (position) ->
           window.currentPositionGotFlag = true
           window.currentLatitude = position.coords.latitude

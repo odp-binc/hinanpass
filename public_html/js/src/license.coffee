@@ -10,14 +10,16 @@ window.license = ->
     defineTitles = t 'license.' + kind + '.def.titles'
     defineDescriptions = t 'license.' + kind + '.def.descriptions'
     defineList = new String()
+
     for i in [0...defineTitles.length]
       defineList += "<dt>#{defineTitles[i]}</dt><dd>#{defineDescriptions[i]}</dd>"
+
     wrapper.append "
-    <h3>#{t 'license.' + kind + '.title'}</h3>
-    <p>#{t 'license.' + kind + '.text'}</p>
-    <dl>
-      #{defineList}
-    </dl>"
+      <h3>#{t 'license.' + kind + '.title'}</h3>
+      <p>#{t 'license.' + kind + '.text'}</p>
+      <dl>
+        #{defineList}
+      </dl>"
 
   do licenseInsert = ->
     wrapper = $('#licenseList')

@@ -10,7 +10,7 @@ window.aboutThisApp = ->
     $('#contents').html '<div id="aboutWrapper" class="about-wrapper"></div>'
     $('#pageNav').slideUp 'fast'
 
-  do licenseListMake =  ->
+  do aboutListMake =  ->
     wrapper = $ '#aboutWrapper'
     listContents = t 'about.list.contents'
     listIdNames = t 'about.list.idNames'

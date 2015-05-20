@@ -11,7 +11,6 @@ window.guidance = ->
     $('#contents').append '<div id="bottomButtonWrapper"
                            class="guidance-description"></div>'
     $('#contents').removeClass 'map'
-    $('#pageNav').slideUp 'fast'
     $('#backButton').html '< ' + t('navbar.back')
     $('#backButton').off 'click'
     $('#backButton').on 'click' , ->

@@ -4,7 +4,6 @@ window.makeMapView = ->
   # 大枠を作る
   do partsReset = ->
     $('#contents').addClass 'map'
-    $('#pageNav').slideUp 'fast'
     $('#contents').html '
       <div id="mapCanvas" class="map-camvas" style="width:100%; height:100%"></div>'
     $('#backButton').html '< ' + t('navbar.back')

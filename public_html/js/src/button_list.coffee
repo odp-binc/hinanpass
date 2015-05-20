@@ -4,7 +4,6 @@ window.buttonList = ->
   partsReset = ->
     $('#contents').html '<div id="description" class="top-description"></div>'
     $('#contents').append '<div id="buttonWrapper" class="button-wrapper"></div>'
-    $('#pageNav').slideUp 'fast'
     $('#backButton').html ''
     $('#backButton').off()
     $('#contents').removeClass 'map'
@@ -12,10 +11,10 @@ window.buttonList = ->
 
   # ボタンの生成
   disasterButtonMaker = (appendElement,buttonClassName,buttonIdName) ->
-    $(appendElement).append '<div id="' + buttonIdName + 
-                            '" class="button ' + buttonClassName + 
+    $(appendElement).append '<div id="' + buttonIdName +
+                            '" class="button ' + buttonClassName +
                             '"><img src="images/' + buttonClassName +
-                            '.png"><p>'+ t('buttonList.buttons.' + buttonIdName) + 
+                            '.png"><p>'+ t('buttonList.buttons.' + buttonIdName) +
                             '</p></div>'
     $('#' + buttonIdName).on 'click' , ->
       # Google Analyticsにて度の災害ボタンがよく押されているかわかるようにするためのコード
@@ -49,7 +48,7 @@ window.buttonList = ->
     disasterButtonMaker '#buttonWrapper' , 'button-landslide' , 'landslideButton'
 
 
-  # 関数が呼び出された時に実行するメソッド  
+  # 関数が呼び出された時に実行するメソッド
   partsReset()
   descriptionCreate()
   disasterButtonCreate()

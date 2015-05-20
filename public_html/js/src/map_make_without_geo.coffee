@@ -52,15 +52,15 @@ window.mapMakeWithoutGeo = ->
 
         setTimeout removeSearchResult, 3000
 
-
-
-
       else if data.status == 'ZERO_RESULTS'
+        $('#locationNameInput').blur()
         alert t 'error.zeroResults'
       else
+        $('#locationNameInput').blur()
         alert t 'error.unknown'
 
     .error ->
+      $('#locationNameInput').blur()
       alert t 'error.traffic'
 
   $('#search').on 'click' , ->

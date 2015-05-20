@@ -16,7 +16,11 @@ window.navigate = (target_lat,target_long) ->
       # この変数の初期化はfacility.setで行っている(多分ugly code)
       directionsDisplay.setMap null
 
-      request = 
+      window.currentDestination =
+        lat: target_lat
+        long: target_long
+
+      request =
         origin: new google.maps.LatLng current_lat, current_long
         destination: new google.maps.LatLng target_lat, target_long
         travelMode: google.maps.TravelMode.WALKING

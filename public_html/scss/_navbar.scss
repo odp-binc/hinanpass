@@ -11,16 +11,18 @@ header.navbar {
   div.back-button {
     position: absolute;
     z-index: 3;
-    left: 10px;
-    height: 100%;
+    padding-left: 10px;
+    left: 0;
+    height: 60px;
     line-height: 55px;
   }
   // メニューボタン
   div.nav-button {
     position: absolute;
     z-index: 3;
-    top: 13px;
-    right: 13px;
+    top: 0;
+    right: 0;
+    padding: 13px;
     img {
       max-height: 30px;
     }

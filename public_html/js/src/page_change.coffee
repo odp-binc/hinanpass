@@ -3,7 +3,7 @@ window.pageChange = ->
   hash = location.hash
 
   window.scrollTo 0, 0
-  
+
   if !hash
     buttonList()
   else
@@ -17,6 +17,12 @@ window.pageChange = ->
           break
         when 'license'
           license()
+          break
+        when 'menu'
+          menu()
+          break
+        when 'description', 'caution', 'area'
+          menuContents(hash.match(/[a-zA-Z]+/)[0])
           break
         when 'about'
           aboutThisApp()

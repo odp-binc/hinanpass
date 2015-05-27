@@ -13,9 +13,6 @@ x18n.register 'ja',
   navbar:
     title: '<img src="images/logo.png" alt="ヒナンパス">'
     back: '戻る'
-    nav:
-      aboutThisApp: 'このアプリについて'
-      howToUse: 'アプリの使い方'
   buttonList:
     description:
       sentenceBeforeButton: '対応する災害の'
@@ -232,6 +229,27 @@ x18n.register 'ja',
         landslide: '?s odp:supportLandslide true.'
         typhoon: ''
         all: ''
+      publisher: '
+        PREFIX odp: <http://odp.jig.jp/odp/1.0#>
+        PREFIX jrrk: <http://purl.org/jrrk#>
+        PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+        PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+        PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+        PREFIX schema: <http://schema.org/>
+        PREFIX dcterms: <http://purl.org/dc/terms/>
+        PREFIX dc: <http://purl.org/dc/elements/1.1/>
+        select * {
+        ?s rdf:type odp:Dataset ;
+          odp:target jrrk:EmergencyFacility ;
+          dc:title ?title ;
+          dc:creator ?creator ;
+          dcterms:publisher [ rdfs:label ?publisher ; odp:refArea ?ref_area ] ;
+          dcterms:references ?ckan_link ;
+          schema:version ?version ;
+        .
+        OPTIONAL { ?s dcterms:created ?created } .
+        OPTIONAL { ?s dcterms:modified ?modified } .
+        }'
 
   information:
     capacity: '収容人数 : '
@@ -244,7 +262,8 @@ x18n.register 'ja',
     unknown: '不明'
     howToClose: 'どこかをタッチして詳細を閉じる'
 
-  heightDescription: '避難高度'
+  heightDescription: '避難所の高さ'
+  sealevelDescription: '避難所の海抜'
 
   error:
     geolocation: '<p>現在地の取得が行えませんでした。<br>
@@ -301,7 +320,7 @@ x18n.register 'ja',
         ]
 
   about:
-    title: 'このアプリについて'
+    title: 'アプリ情報'
     imagePath: 'images/about-logo.png'
     list:
       contents: [
@@ -315,7 +334,7 @@ x18n.register 'ja',
         'license'
       ]
       hrefs:
-        terms: 'http://rd.jig.jp/term_hinanpass_jp.html'
+        terms: 'http://rd.jig.jp/hinanpass/term_hinanpass_jp.html'
         privacy: 'http://jig.jp/privacy/'
 
   menu:
@@ -369,6 +388,7 @@ x18n.register 'ja',
     title: 'データ提供地域'
     description: 'データ提供地域は以下のとおりです'
     list: [
+      '福井県鯖江市'
       '東京都品川区'
       '兵庫県神戸市'
       '奈良県奈良市'
@@ -389,6 +409,8 @@ x18n.register 'ja',
       '福井県若狭町'
       '福井県池田町'
       '福井県大野市'
+      '福井県南越前町'
+      '福井県'
       '鳥取県'
     ]
 

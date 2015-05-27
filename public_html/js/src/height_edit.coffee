@@ -1,6 +1,13 @@
-# 高さ調節。sealevelのことheightって言ってる。
+# 高さ調節
 window.heightEdit = ->
   defaultHeight = 15
+  maxHeight = 50
+  paramater = 'sealevel'
+  switch location.hash.match(/[a-zA-Z]+/)[0]
+    when 'flood', 'inundation'
+      defaultHeight = 5
+      maxHeight = 30
+      paramater = 'height'
   # FIXME: initializeに処理を書きすぎて頭でっかち…コード量少ないからマシにしてもこれは…
   initialize = ->
     $('#contents').append '<div id="heightEdit" class="height-edit"></div>'
@@ -10,7 +17,7 @@ window.heightEdit = ->
     $('#heightEdit').append '
       <div id="heightEditSlider" class="slider">
         <form>
-          <input type="range" min="0" max="50" value="' + defaultHeight + '">
+          <input type="range" min="0" max="' + maxHeight + '" value="' + defaultHeight + '">
         </form>
       </div>'
 
@@ -34,17 +41,27 @@ window.heightEdit = ->
   # 高さによって見せる避難所ピンを判定
   heightVisibility = (requestHeight = defaultHeight) ->
     for mark in marker
-      if mark.information.sealevel >= requestHeight
-        mark.marker.setVisible true
+      if paramater == 'height'
+        if mark.information.height >= requestHeight
+          mark.marker.icon.url = 'images/facilityMarker.png'
+          mark.marker.setVisible true
+        else
+          mark.marker.icon.url = 'images/facilityMarker-unsuggest.png'
+          mark.marker.setVisible true
       else
-        mark.marker.setVisible false
+        if mark.information.sealevel >= requestHeight
+          mark.marker.icon.url = 'images/facilityMarker.png'
+          mark.marker.setVisible true
+        else
+          mark.marker.icon.url = 'images/facilityMarker-unsuggest.png'
+          mark.marker.setVisible true
 
-    $('#heightEditInput').html t('heightDescription') + " <span>#{requestHeight}m</span>"
+    $('#heightEditInput').html t(paramater + 'Description') + " <span>#{requestHeight}m</span>"
 
 
   # 高さによって避難所詳細の吹き出しを消す
   descriptionVisibility = (requestHeight = defaultHeight) ->
-    if requestHeight >= window.selectedFacilityHeight && window.selectedFacilityHeight
+    if requestHeight >= window.selectedFacilityHeight || !(window.selectedFacilityHeight)
       # 高さが超えたら吹き出しを消す
       window.currentInfoWindow.close() if currentInfoWindow
 

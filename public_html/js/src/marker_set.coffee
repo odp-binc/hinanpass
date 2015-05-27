@@ -22,6 +22,11 @@ window.markerSet = (facilities) ->
       heightString = '( ' + t('information.height') + facility.height + 'm )' if facility.height
       content += "<span class='sealevel'>#{seaLevelString}m <span class='height'
                   >#{heightString}</span></span><br>"
+    else
+      heightString = ''
+      heightString = '( ' + t('information.height') + facility.height + 'm )' if facility.height
+      content += "<span class='sealevel'>#{t 'information.unknown'} <span class='height'
+                  >#{heightString}</span></span><br>"
     if facility.telephone
       content += "<span class='telephone'>TEL : #{facility.telephone}</span>"
     content += "<div class='navigate-button #{disasterName}'

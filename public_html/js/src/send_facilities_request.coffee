@@ -17,7 +17,7 @@ window.sendFacilitiesRequest = (currentLat,currentLong) ->
   endRequestNumber = 0
 
   # localize.coffee内に投げているクエリ(の一部)がある
-  query = queryParts[0] + t('sparql.query.kind.' + disasterName) + 
+  query = queryParts[0] + t('sparql.query.kind.' + disasterName) +
           queryParts[1] + (currentLat - latdelta) +
           queryParts[2] + (currentLat + latdelta) +
           queryParts[3] + (currentLong - longdelta) +
@@ -28,7 +28,7 @@ window.sendFacilitiesRequest = (currentLat,currentLong) ->
     url: url,
     callbackParameter: 'callback',
     cache: false,
-    data: 
+    data:
       output: 'json',
       app_name: 'hinankun',
       query: query
@@ -51,7 +51,7 @@ window.sendFacilitiesRequest = (currentLat,currentLong) ->
   dataParse = (data) ->
     parsedData = new Array()
     for datum in data
-      parsedDatum = 
+      parsedDatum =
         lat: datum.lat.value
         long: datum.long.value
       if datum.address
@@ -73,7 +73,7 @@ window.sendFacilitiesRequest = (currentLat,currentLong) ->
       if datum.sealevel
         parsedDatum.sealevel = datum.sealevel.value - 0
       if datum.height
-        parsedDatum.height = datum.height.value
+        parsedDatum.height = datum.height.value - 0
       if datum.telephone
         parsedDatum.telephone = datum.telephone.value
       if datum.fire

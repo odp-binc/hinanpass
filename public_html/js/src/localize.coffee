@@ -119,6 +119,7 @@ x18n.register 'ja',
     url:
       facilities: 'http://sparql.odp.jig.jp/api/v1/sparql' # 本番環境
       # facilities: 'http://54.65.46.57/api/v1/sparql' #テスト環境
+      # facilities: 'http://52.69.105.205/api/v1/sparql' #デモ環境
     query:
       baseFacilities: [
         'prefix rdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#>

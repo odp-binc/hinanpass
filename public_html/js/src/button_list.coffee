@@ -44,7 +44,7 @@ window.buttonList = ->
     disasterButtonMaker '#buttonWrapper' , 'button-inundation' , 'inundationButton'
     disasterButtonMaker '#buttonWrapper' , 'button-eruption' , 'eruptionButton'
     disasterButtonMaker '#buttonWrapper' , 'button-fire' , 'fireButton'
-    disasterButtonMaker '#buttonWrapper' , 'button-typhoon' , 'typhoonButton'
+    # disasterButtonMaker '#buttonWrapper' , 'button-typhoon' , 'typhoonButton'
     disasterButtonMaker '#buttonWrapper' , 'button-landslide' , 'landslideButton'
 
 

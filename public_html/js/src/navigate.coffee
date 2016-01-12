@@ -5,9 +5,9 @@ window.navigate = (target_lat,target_long) ->
   window.currentInfoWindow.close() if currentInfoWindow
 
   do tryNavigate = ->
-    if window.currentMarker.position.A
-      current_lat = currentMarker.position.A
-      current_long = currentMarker.position.F
+    if window.currentMarker.position.lat()
+      current_lat = currentMarker.position.lat()
+      current_long = currentMarker.position.lng()
 
       target_lat = target_lat - 0
       target_long = target_long - 0
@@ -28,6 +28,7 @@ window.navigate = (target_lat,target_long) ->
       directionsService = new google.maps.DirectionsService()
       directionsDisplay.setMap map
       directionsService.route request, (result,status) ->
+        console.log status == google.maps.DirectionsStatus.OK
         directionsDisplay.setDirections result if status == google.maps.DirectionsStatus.OK
     else
       setTimeout tryNavigate , 100

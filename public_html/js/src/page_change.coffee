@@ -4,7 +4,7 @@ window.pageChange = ->
 
   window.scrollTo 0, 0
 
-  if !hash
+  if !hash || hash.match(/[a-zA-Z]+/g) == null
     buttonList()
   else
     if hash.match(/[a-zA-Z]+/g).length == 1

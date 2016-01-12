@@ -21,14 +21,46 @@ window.menuContents = (contents_name) ->
       when 'area'
         listContents = t 'area.list'
         lists = new String()
-        for i in [0...listContents.length]
-          lists += "<li>#{listContents[i]}</li>"
-        wrapper.append "
-        <h3>#{t 'area.title'}</h3>
-        <p>#{t 'area.description'}</p>
-        <ul>
-          #{lists}
-        </ul>"
+        # for i in [0...listContents.length]
+        #   lists += "<li>#{listContents[i]}</li>"
+        # wrapper.append "
+        # <h3>#{t 'area.title'}</h3>
+        # <p>#{t 'area.description'}</p>
+        # <ul>
+        #   #{lists}
+        # </ul>"
+        # break
+        url = t 'sparql.url.facilities'
+
+        query = t 'sparql.query.publisher'
+
+        $.jsonp {
+          url: url,
+          callbackParameter: 'callback',
+          cache: false,
+          data:
+            output: 'json',
+            app_name: 'hinankun',
+            query: query
+          ,
+          success: (json, httpStatus) ->
+            listContents = new Array()
+            for i in [0...json.results.bindings.length]
+              listContents[i] = json.results.bindings[i].publisher.value
+            lists = new String()
+            for i in [0...listContents.length]
+              if listContents.indexOf(listContents[i]) >= i
+                lists += "<li>#{listContents[i]}</li>"
+            wrapper.append "
+            <h3>#{t 'area.title'}</h3>
+            <p>#{t 'area.description'}</p>
+            <ul>
+              #{lists}
+            </ul>"
+          error: (xOptions, textStatus) ->
+            # PENDING
+            alert t 'error.traffic'
+        }
         break
       else
         buttonList()

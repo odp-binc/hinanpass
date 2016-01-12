@@ -23,7 +23,7 @@ module.exports = function (grunt) {
 		coffee: {
 			compile: {
 				files: {
-					'public_html/dest/js/main.js': ['public_html/js/src/localize.coffee','public_html/js/src/*.coffee'] 
+					'public_html/dest/js/main.js': ['public_html/js/src/localize.coffee','public_html/js/src/*.coffee']
 				}
 			}
 		},
@@ -85,7 +85,7 @@ module.exports = function (grunt) {
 		},
 		sshexec: {
 			testup: {
-				command: 'bash ./testup.sh',
+				command: 'bash ./testup_hinan.sh',
 				options: {
 					host: '54.64.95.43',
 					username: 'tsukamoto',
@@ -100,7 +100,7 @@ module.exports = function (grunt) {
 					"./": "public_html/dest/*"
 				},
 				options: {
-					path: "/home/tsukamoto/dest/",
+					path: "/home/tsukamoto/dest_hinan/",
 					host: "54.64.95.43",
 					username: 'tsukamoto',
 					password: "",
@@ -114,7 +114,7 @@ module.exports = function (grunt) {
 					"./": "public_html/dest/css/*"
 				},
 				options: {
-					path: "/home/tsukamoto/dest/css/",
+					path: "/home/tsukamoto/dest_hinan/css/",
 					host: "54.64.95.43",
 					username: 'tsukamoto',
 					password: "",
@@ -127,7 +127,7 @@ module.exports = function (grunt) {
 					"./": "public_html/dest/js/*"
 				},
 				options: {
-					path: "/home/tsukamoto/dest/js/",
+					path: "/home/tsukamoto/dest_hinan/js/",
 					host: "54.64.95.43",
 					username: 'tsukamoto',
 					password: "",
@@ -140,7 +140,7 @@ module.exports = function (grunt) {
 					"./": "public_html/dest/js/libs/*"
 				},
 				options: {
-					path: "/home/tsukamoto/dest/js/libs/",
+					path: "/home/tsukamoto/dest_hinan/js/libs/",
 					host: "54.64.95.43",
 					username: 'tsukamoto',
 					password: "",
@@ -153,7 +153,7 @@ module.exports = function (grunt) {
 					"./": "public_html/dest/images/*"
 				},
 				options: {
-					path: "/home/tsukamoto/dest/images/",
+					path: "/home/tsukamoto/dest_hinan/images/",
 					host: "54.64.95.43",
 					username: 'tsukamoto',
 					password: "",

@@ -1,0 +1,66 @@
+header.navbar {
+  // ナビゲーションバー全体に対する指定
+  position: fixed;
+  color: $title-text-color;
+  min-height: 55px;
+  text-align: center;
+  width: 100%;
+  background-color: $title-bar-background-color;
+  box-shadow: $navbar-shadow;
+  // 戻るボタン
+  div.back-button {
+    position: absolute;
+    z-index: 3;
+    padding-left: 10px;
+    left: 0;
+    height: 60px;
+    line-height: 55px;
+  }
+  // メニューボタン
+  div.nav-button {
+    position: absolute;
+    z-index: 3;
+    top: 0;
+    right: 0;
+    padding: 13px;
+    img {
+      max-height: 30px;
+    }
+  }
+  // タイトル
+  h1 {
+    font-weight: bold;
+    font-size: $title-font-size;
+    line-height: 55px;
+    height: 100%;
+    max-height: 55px;
+    width: 144px;
+    margin: 0 auto;
+    // HACK: Galaxy Nexus純正ブラウザで発生した画像サイズ変更バグの対処
+    background-image: url('../images/logo.png');
+    background-size: 139px 30px;
+    background-repeat: no-repeat;
+    background-position: center left;
+    img {
+      visibility: hidden;
+      height: 100%;
+      width: 139px;
+      position: relative;
+    }
+  }
+  // メニューボタン押下時に出てくる項目
+  nav {
+    display: none;
+    background-color: $title-nav-background-color;
+    ul {
+      list-style: none;
+      width: 100%;
+      li {
+        text-align: left;
+        padding: 10px;
+        border-bottom: $title-nav-li-border;
+        color: $title-nav-li-color;
+      }
+    }
+  }
+}

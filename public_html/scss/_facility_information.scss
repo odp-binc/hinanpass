@@ -1,0 +1,51 @@
+.information-wrapper {
+  background: $information-wrapper-bgcolor;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  .information-box {
+    margin: 80px auto;
+    padding: 20px;
+    width: 80%;
+    border-radius: 5px;
+    max-width: 480px;
+    font-size: 16px;
+    line-height: 20px;
+    background: $information-box-bgcolor;
+    small {
+      font-size: 16px;
+      margin-left: 7px;
+    }
+    h3 {
+      border-bottom: $information-name-underline;
+      padding: 0 4px 5px;
+      margin-bottom: 10px;
+    }
+    .category {
+      display: inline-block;
+      padding: 2px 5px;
+      border-radius: 3px;
+      background-color: $information-category-bgcolor;
+      color: $information-category-color;
+    }
+    .address, .target, .capacity, .description,
+    .sealevel, .telephone, .disasters {
+      margin-top: 8px;
+    }
+    .disasters-title {
+      font-weight: bold;
+    }
+    .disasters span {
+      margin-right: 7px;
+    }
+    .close-guidance {
+      padding: 5px;
+      text-align: center;
+      border-radius: 5px;
+      border: $close-guidance-border;
+      color: $close-guidance-color;
+      margin-top: 20px;
+    }
+  }
+}

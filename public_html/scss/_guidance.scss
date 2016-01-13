@@ -1,0 +1,105 @@
+// 避難方法案内画面のスタイル
+
+// 次に進むボタン周辺のスタイル
+.guidance-description {
+  border-bottom: $description-border;
+  // ボタンの大きさなど
+  .button-next {
+    text-align: center;
+    font-size: $next-button-font-size;
+    padding: 5px 0;
+    margin: 25px 0 20px;
+
+    // 各ボタンの色
+    &.button-earthquake {
+      @include button-detail($earthquake-button-color);
+    }
+    &.button-flood {
+      @include button-detail($flood-button-color);
+    }
+    &.button-hightide {
+      @include button-detail($hightide-button-color);
+    }
+    &.button-tsunami {
+      @include button-detail($tsunami-button-color);
+    }
+    &.button-inundation {
+      @include button-detail($inundation-button-color);
+    }
+    &.button-eruption {
+      @include button-detail($eruption-button-color);
+    }
+    &.button-fire {
+      @include button-detail($fire-button-color);
+    }
+    &.button-typhoon {
+      @include button-detail($typhoon-button-color);
+    }
+    &.button-landslide {
+      @include button-detail($landslide-button-color);
+    }
+  }
+}
+
+// 避難方法ガイド部分の実装
+.guide-wrapper {
+  margin: 10px 0;
+  ul {
+    list-style: none;
+    li {
+      box-sizing: border-box;
+      border-left: $guide-list-border;
+      padding-left: 10px;
+      margin: 15px 0;
+      font-size: 18px;
+      strong {
+        font-size: 22px;
+        color: $guide-strong-color;
+      }
+    }
+  }
+  a {
+    display: block;
+    padding: 5px;
+    text-align: center;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    &.link-earthquake {
+      border: 1px solid $earthquake-button-color;
+      color: $earthquake-button-color;
+    }
+    &.link-flood {
+      border: 1px solid $flood-button-color;
+      color: $flood-button-color;
+    }
+    &.link-hightide {
+      border: 1px solid $hightide-button-color;
+      color: $hightide-button-color;
+    }
+    &.link-tsunami {
+      border: 1px solid $tsunami-button-color;
+      color: $tsunami-button-color;
+    }
+    &.link-inundation {
+      border: 1px solid $inundation-button-color;
+      color: $inundation-button-color;
+    }
+    &.link-eruption {
+      border: 1px solid $eruption-button-color;
+      color: $eruption-button-color;
+    }
+    &.link-fire {
+      border: 1px solid $fire-button-color;
+      color: $fire-button-color;
+    }
+    &.link-typhoon {
+      border: 1px solid $typhoon-button-color;
+      color: $typhoon-button-color;
+    }
+    &.link-landslide {
+      border: 1px solid $landslide-button-color;
+      color: $landslide-button-color;
+    }
+  }
+
+}

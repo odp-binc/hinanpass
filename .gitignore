@@ -3,3 +3,5 @@ public_html/dest/
 public_html/test.html
 *.back
 node_modules/
+yuidocs/
+.*

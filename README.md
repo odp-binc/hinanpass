@@ -13,3 +13,7 @@ npm init
 npm install
 grunt
 ```
+
+## License
+
+[ヒナンパスロイヤリティフリープログラム利用規約](https://github.com/odp-jigjp/hinanpass/blob/master/royalty_free.md)

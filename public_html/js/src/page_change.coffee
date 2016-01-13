@@ -18,6 +18,9 @@ window.pageChange = ->
         when 'license'
           license()
           break
+        when 'cc'
+          cc()
+          break
         when 'menu'
           menu()
           break

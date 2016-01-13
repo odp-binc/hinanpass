@@ -1,0 +1,26 @@
+div.cc-list {
+  padding: 15px 0 20px;
+  h3 {
+    font-size: 18px;
+    padding: 10px 0 0;
+  }
+  h4 {
+    font-size: 15px;
+    margin: 30px 0 10px
+  }
+  p {
+    font-size: 15px;
+    line-height: 24px;
+    margin: 5px 0;
+    border-radius: 5px;
+  }
+  ol {
+    padding-left: 25px;
+    li {
+      margin-bottom: 10px;
+    }
+    ol {
+      list-style: lower-roman;
+    }
+  }
+}

@@ -9,7 +9,6 @@
 # Getting started
 
 ```
-npm init
 npm install
 grunt
 ```

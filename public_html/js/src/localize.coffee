@@ -260,7 +260,7 @@ x18n.register 'ja',
     height: '建物の高さ : '
     here: 'ここへ避難'
     check: '詳細を確認'
-    unknown: '不明'
+    unknown: ''
     howToClose: 'どこかをタッチして詳細を閉じる'
 
   heightDescription: '避難所の高さ'

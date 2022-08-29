@@ -11,7 +11,8 @@ window.mapMakeWithoutGeo = ->
   searchCurrentPosition = ->
     locationName = $('#locationNameInput').val()
     url = 'http://maps.googleapis.com/maps/api/geocode/json?address=' +
-           locationName + '&sensor=true'
+           locationName + 
+           '&key=AIzaSyA0bJAbk3EqDlr06oLMBGoP7W3kfdZvD1U&sensor=true'
 
     $.getJSON url,null
     .success (data) ->
